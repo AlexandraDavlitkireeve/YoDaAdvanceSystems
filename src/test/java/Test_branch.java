@@ -10,8 +10,7 @@ public class Test_branch {
         System.out.println("Surapat");
         System.out.println("Stashing");
         System.out.println("Good Morning");
-        System.out.println("Push with 2 collaborators");
-
+        System.out.println("Practice");
 
     }
 
