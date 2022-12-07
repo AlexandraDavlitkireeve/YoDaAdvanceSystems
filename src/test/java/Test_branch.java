@@ -5,7 +5,9 @@ public class Test_branch {
         System.out.println("Nikki");
         System.out.println("Alexandra");
         System.out.println("Jose");
-
+        System.out.println("Sugar");
+        System.out.println("Pailin");
+        System.out.println("Surapat");
     }
 
 
