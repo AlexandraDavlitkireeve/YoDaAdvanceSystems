@@ -3,6 +3,7 @@ package step_definitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.openqa.selenium.By;
 import pages.HomePage;
 import utils.BrowserUtils;
 
@@ -39,9 +40,17 @@ public class Home_steps {
         BrowserUtils.assertEquals(BrowserUtils.getText(page.phoneNumber), "+1 703-831-3217");
     }
 
+
+    @Then("Verify button {string} is displayed")
+    public void verifyButtonIsDisplayed(String button) {
+        BrowserUtils.isDisplayed(page.navBtn);
+    }
+
+
     @Then("Verify Title of the homepage should be {string}")
     public void verifyTitleOfTheHomepageShouldBe(String titletext) {
         BrowserUtils.assertEquals("Advance Systems - Home", titletext );
 
     }
+
 }
