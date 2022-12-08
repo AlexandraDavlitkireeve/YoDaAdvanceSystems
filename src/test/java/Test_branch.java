@@ -15,6 +15,4 @@ public class Test_branch {
         System.out.println("Practice");
         System.out.println("verification");
     }
-
-
 }
