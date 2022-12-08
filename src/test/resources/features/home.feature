@@ -30,3 +30,8 @@ Feature: Home Page Test
       | Spanish            |
       | French             |
 
+  @ASY-4
+  Scenario: Parallax section
+    Then header is displayed
+    And verify description is displayed
+    And verify read more button is displayed
