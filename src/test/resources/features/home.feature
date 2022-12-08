@@ -17,6 +17,16 @@ Feature: Home Page Test
   Scenario: Title of the home page
     Then Verify Title of the homepage should be "Advance Systems - Home"
 
-
-
+  @ASY-7 @smoke
+  Scenario Outline: General navigation bar
+    Then Verify button "<nav button>" is displayed
+    Examples:
+      | nav button         |
+      | Get Support        |
+      | Job Career         |
+      | Feedback           |
+      | Language selection |
+      | English            |
+      | Spanish            |
+      | French             |
 
