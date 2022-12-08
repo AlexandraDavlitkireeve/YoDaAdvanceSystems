@@ -12,3 +12,15 @@ Feature: Home Page Test
     And Verify Phone: "703-831-3217" is displayed
 
 
+  @ASY-7 @smoke
+  Scenario Outline: General navigation bar
+    Then Verify button "<nav button>" is displayed
+    Examples:
+      | nav button         |
+      | Get Support        |
+      | Job Career         |
+      | Feedback           |
+      | Language selection |
+      | English            |
+      | Spanish            |
+      | French             |
