@@ -41,7 +41,8 @@ public class Home_steps {
 
     @Then("Verify Title of the homepage should be {string}")
     public void verifyTitleOfTheHomepageShouldBe(String titletext) {
-        BrowserUtils.assertEquals("Advance Systems - Home", titletext );
+        BrowserUtils.assertEquals("Advance Systems - Home", titletext);
 
     }
+
 }

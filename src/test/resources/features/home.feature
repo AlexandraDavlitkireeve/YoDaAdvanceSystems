@@ -1,6 +1,8 @@
 Feature: Home Page Test
+
   Background: Home page
     Given Navigate to Home page
+
   @ASY-1
   Scenario: HomePage
 
@@ -12,7 +14,9 @@ Feature: Home Page Test
     And Verify Phone: "703-831-3217" is displayed
 
   @ASY-6 @smoke
-    Scenario: Title of the home page
+  Scenario: Title of the home page
     Then Verify Title of the homepage should be "Advance Systems - Home"
+
+
 
 
