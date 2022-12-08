@@ -17,4 +17,8 @@ public class HomePage {
 
     @FindBy(xpath = "//strong[contains(text(), '+1 703-831-3217')]")
     public WebElement phoneNumber;
+
+    @FindBy (xpath = "//title" )
+    public WebElement titleHomepage;
+
 }
