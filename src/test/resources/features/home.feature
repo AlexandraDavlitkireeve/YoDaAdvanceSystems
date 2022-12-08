@@ -12,4 +12,3 @@ Feature: Home Page Test
     And Verify Phone: "703-831-3217" is displayed
 
 
-git s
