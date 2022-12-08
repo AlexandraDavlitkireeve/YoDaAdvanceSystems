@@ -38,4 +38,10 @@ public class Home_steps {
     public void verifyPhoneIsDisplayed(String phone) {
         BrowserUtils.assertEquals(BrowserUtils.getText(page.phoneNumber), "+1 703-831-3217");
     }
+
+    @Then("Verify Title of the homepage should be {string}")
+    public void verifyTitleOfTheHomepageShouldBe(String titletext) {
+        BrowserUtils.assertEquals("Advance Systems - Home", titletext );
+
+    }
 }
