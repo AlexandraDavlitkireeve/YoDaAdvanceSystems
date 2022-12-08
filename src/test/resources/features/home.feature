@@ -5,7 +5,7 @@ Feature: Home Page Test
   Scenario: HomePage
 
 
-  @ASY-3
+  @ASY-3 @smoke
   Scenario: Contact info on main page
     Then verify 10090 Main Street is displayed
     And Verify Fairfax, VA, USA is displayed
