@@ -44,4 +44,19 @@ public class Home_steps {
         BrowserUtils.assertEquals("Advance Systems - Home", titletext );
 
     }
+
+    @Then("header is displayed")
+    public void headerIsDisplayed() {
+        BrowserUtils.isDisplayed(page.headerParallax);
+    }
+
+    @And("verify description is displayed")
+    public void verifyDescriptionIsDisplayed() {
+        BrowserUtils.isDisplayed(page.description);
+    }
+
+    @And("verify read more button is displayed")
+    public void verifyReadMoreButtonIsDisplayed() {
+        BrowserUtils.isDisplayed(page.moreButton);
+    }
 }

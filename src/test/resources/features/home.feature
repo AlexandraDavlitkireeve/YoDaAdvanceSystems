@@ -16,3 +16,8 @@ Feature: Home Page Test
     Then Verify Title of the homepage should be "Advance Systems - Home"
 
 
+  @ASY-4
+  Scenario: Parallax section
+    Then header is displayed
+    And verify description is displayed
+    And verify read more button is displayed
