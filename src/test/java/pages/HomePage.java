@@ -9,12 +9,12 @@ public class HomePage {
     public HomePage() {
         PageFactory.initElements(BrowserUtils.getDriver(), this);
     }
-    @FindBy(xpath = "//div[@class='info-box-one']/ul/li/i)[1]")
+    @FindBy(xpath = "//i[contains(text(), '10090 Main Street')]")
     public WebElement streetAddress;
 
-    @FindBy(xpath = "//div[@class='info-box-one']/ul/li)[2]/strong")
+    @FindBy(xpath = "//strong[contains(text(), 'Fairfax, VA, USA')]")
     public WebElement townAndState;
 
-    @FindBy(xpath = "//div[@class='info-box-one']/ul/li)[4]/strong")
+    @FindBy(xpath = "//strong[contains(text(), '+1 703-831-3217')]")
     public WebElement phoneNumber;
 }
