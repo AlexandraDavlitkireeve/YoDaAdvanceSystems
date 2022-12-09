@@ -25,6 +25,10 @@ public class HomePage {
     @FindBy (xpath = "//title" )
     public WebElement titleHomepage;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> e3a350bd318e88b5144ac476612fd47a0c101c48
     @FindBy(xpath = "//h2[@class='white-heading']")
     public WebElement headerParallax ;
 
