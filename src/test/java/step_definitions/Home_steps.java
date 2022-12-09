@@ -67,5 +67,8 @@ public class Home_steps {
     public void verifyReadMoreButtonIsDisplayed() {
         BrowserUtils.isDisplayed(page.moreButton);
     }
+<<<<<<< HEAD
+=======
 
+>>>>>>> e3a350bd318e88b5144ac476612fd47a0c101c48
 }
