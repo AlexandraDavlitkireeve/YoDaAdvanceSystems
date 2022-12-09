@@ -18,8 +18,13 @@ public class HomePage {
     @FindBy(xpath = "//strong[contains(text(), '+1 703-831-3217')]")
     public WebElement phoneNumber;
 
+
+    @FindBy (xpath = "//div[@class= 'top-right flex-box-three']")
+    public WebElement navBtn;
+
     @FindBy (xpath = "//title" )
     public WebElement titleHomepage;
+
 
     @FindBy(xpath = "//h2[@class='white-heading']")
     public WebElement headerParallax ;
