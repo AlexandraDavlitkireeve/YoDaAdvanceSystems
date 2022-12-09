@@ -26,4 +26,13 @@ public class HomePage {
     public WebElement titleHomepage;
 
 
+    @FindBy(xpath = "//h2[@class='white-heading']")
+    public WebElement headerParallax ;
+
+    @FindBy(xpath = "//a[text()='Read More']")
+    public WebElement moreButton;
+
+    @FindBy(xpath = "//div[@class='tp-mask-wrap']//div[@class='text'][1]")
+    public WebElement description;
+
 }
