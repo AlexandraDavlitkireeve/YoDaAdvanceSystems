@@ -99,6 +99,18 @@ public class Home_steps implements CommonPage
 
     // TODO @ASY-10
 
+    @Then("Verify {string} button above the main content of the home page")
+    public void verifyButtonAboveTheMainContentOfTheHomePage(String btn)
+    {
+        BrowserUtils.click(page.joinNowBtn);
+    }
+    @And("Verify button should take the user to {string} page")
+    public void verifyButtonShouldTakeTheUserToPage(String joinUsTxt) throws InterruptedException {
+        BrowserUtils.waitForElementVisibility(page.joinUsTxt);
+        Thread.sleep(2000);
+        BrowserUtils.assertEquals(BrowserUtils.getText(page.joinUsTxt), "Join Us");
+    }
+
 
 
 

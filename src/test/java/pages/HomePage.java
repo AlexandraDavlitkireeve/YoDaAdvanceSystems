@@ -57,7 +57,11 @@ public class HomePage {
 
     // TODO @ASY-10
 
+    @FindBy(xpath = "//a[text()='Join Now']")
+    public WebElement joinNowBtn;
 
+    @FindBy(xpath = "//div/h1[text()='Join Us']")
+    public WebElement joinUsTxt;
 
 
 
