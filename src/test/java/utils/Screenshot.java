@@ -11,15 +11,15 @@ import java.util.Base64;
 
 public class Screenshot {
 
-        public static String takeScreenshot(WebDriver driver){
-            File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-            byte[] fileContent = new byte[0];
-            try{
-                fileContent = FileUtils.readFileToByteArray(scrFile);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return "data:image/png;base64," + Base64.getEncoder().encodeToString(fileContent);
+    public static String takeScreenshot(WebDriver driver){
+        File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        byte[] fileContent = new byte[0];
+        try{
+            fileContent = FileUtils.readFileToByteArray(scrFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "data:image/png;base64," + Base64.getEncoder().encodeToString(fileContent);
 
     }
 }
