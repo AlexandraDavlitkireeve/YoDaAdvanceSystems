@@ -35,3 +35,23 @@ Feature: Home Page Test
     Then header is displayed
     And verify description is displayed
     And verify read more button is displayed
+
+
+
+
+
+
+
+
+
+
+
+  @ASY-8 @smoke
+  Scenario Outline: Main social media section
+    Then Verify button "<nav button>" is clickable
+    Examples:
+      | nav button |
+      | Facebook   |
+      | Twitter    |
+      | Google     |
+      | LinkedIn   |

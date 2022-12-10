@@ -40,12 +40,10 @@ public class Home_steps {
         BrowserUtils.assertEquals(BrowserUtils.getText(page.phoneNumber), "+1 703-831-3217");
     }
 
-
     @Then("Verify button {string} is displayed")
     public void verifyButtonIsDisplayed(String button) {
         BrowserUtils.isDisplayed(page.navBtn);
     }
-
 
     @Then("Verify Title of the homepage should be {string}")
     public void verifyTitleOfTheHomepageShouldBe(String titletext) {
