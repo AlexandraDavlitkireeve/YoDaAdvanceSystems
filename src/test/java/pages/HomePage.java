@@ -35,4 +35,6 @@ public class HomePage {
     @FindBy(xpath = "//div[@class='tp-mask-wrap']//div[@class='text'][1]")
     public WebElement description;
 
+    @FindBy(className = "list-info")
+    public WebElement footerInfo;
 }

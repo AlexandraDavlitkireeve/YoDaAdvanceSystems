@@ -35,3 +35,11 @@ Feature: Home Page Test
     Then header is displayed
     And verify description is displayed
     And verify read more button is displayed
+
+  @ASY-14 @smoke
+  Scenario: Footer contact info
+    Then verify Following information footer section is displayed
+
+
+
+
