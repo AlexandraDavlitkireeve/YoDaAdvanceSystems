@@ -181,10 +181,10 @@ public class BrowserUtils {
         return element.isEnabled();
     }
 
-    public static void switchToNewWindow() {
-        for (String each : driver.getWindowHandles()) {
-            if (!each.equals(driver.getWindowHandle())) {
-                driver.switchTo().window(each);
+    public static void switchToNewWindow(WebDriver driver) {
+        for (String each : BrowserUtils.driver.getWindowHandles()) {
+            if (!each.equals(BrowserUtils.driver.getWindowHandle())) {
+                BrowserUtils.driver.switchTo().window(each);
             }
         }
     }
