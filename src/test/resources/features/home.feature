@@ -39,5 +39,7 @@ Feature: Home Page Test
   @ASY-12
   Scenario: Testimonials
     Then Verify header "Words from our Clients" is Displayed
+    Then Verify testimonials are displayed
+
 
 
