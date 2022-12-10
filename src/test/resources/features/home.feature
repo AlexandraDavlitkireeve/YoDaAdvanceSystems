@@ -39,6 +39,10 @@ Feature: Home Page Test
   @ASY-14 @smoke
   Scenario: Footer contact info
     Then verify Following information footer section is displayed
+    And Address: 10090 Main St, Fairfax, VA
+    And Phone: +1 703-831-3217
+    And Email: info@advancesystems.us
+    And Mon to Sat: 9.00 am to 5:00 pm
 
 
 
