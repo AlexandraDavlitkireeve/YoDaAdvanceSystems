@@ -36,6 +36,27 @@ Feature: Home Page Test
       | Spanish            |
       | French             |
 
+  @ASY-4
+  Scenario: Parallax section
+    Then header is displayed
+    And verify description is displayed
+    And verify read more button is displayed
+
+  @ASY-12
+  Scenario: Testimonials
+    Then Verify header "Words from our Clients" is Displayed
+    Then Verify testimonials, person's name and city are displayed
+
+  @ASY-16 @smoke
+    Scenario Outline: Test footer social media links are displayed
+    Then Verify  "<social media>" buttons are displayed
+    Examples:
+    |social media|
+    |facebook    |
+    |twitter     |
+    |skype       |
+    |linkedin    |
+
   @ASY-8 @smoke
   Scenario Outline: Main social media section
     Then Verify button "<nav button>" is clickable
@@ -50,12 +71,9 @@ Feature: Home Page Test
   @ASY-9 @smoke
 
 
-
-
-
-
   @ASY-10 @smoke
    Scenario: Main call to cation button
     Then Verify "Join Now" button above the main content of the home page
     And Verify button should take the user to "Join Us" page
+
 

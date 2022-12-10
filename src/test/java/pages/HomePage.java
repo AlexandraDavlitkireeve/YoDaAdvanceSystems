@@ -5,6 +5,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utils.BrowserUtils;
 
+import java.util.List;
+
 public class HomePage {
     public HomePage() {
         PageFactory.initElements(BrowserUtils.getDriver(), this);
@@ -22,9 +24,8 @@ public class HomePage {
     @FindBy (xpath = "//div[@class= 'top-right flex-box-three']")
     public WebElement navBtn;
 
-    @FindBy (xpath = "//title" )
-    public WebElement titleHomepage;
-
+//    @FindBy (xpath = "//*[contains(text(), 'Advance Systems - Home')]" )
+//    public WebElement titleHomepage;
 
     @FindBy(xpath = "//h2[@class='white-heading']")
     public WebElement headerParallax ;
@@ -34,6 +35,27 @@ public class HomePage {
 
     @FindBy(xpath = "//div[@class='tp-mask-wrap']//div[@class='text'][1]")
     public WebElement description;
+
+    @FindBy(xpath = "//h2[text()='Words from our Clients']")
+    public WebElement headerTxt;
+
+    @FindBy(xpath = "//div[@class='owl-item']//div[contains(text(), 'These guys')]")
+    public List<WebElement> testMsg;
+
+    @FindBy(xpath = "//div[@class='testimonial-outer']")
+    public WebElement activeMsg;
+
+    @FindBy(xpath = "//div[@class='thumb-item']")
+    public WebElement eachPerson;
+
+    @FindBy(xpath = "//div[@class='designation']")
+    public WebElement city;
+
+    @FindBy(xpath = "//ul[@class='social-icon-six']/li")
+    public WebElement mediaBtn;
+
+    @FindBy(xpath = "//div[@class='owl-next']")
+    public WebElement nextBtn;
 
     // TODO @ASY-8
     @FindBy(xpath = "//a[@href='https://facebook.com']")
@@ -65,6 +87,7 @@ public class HomePage {
 
 
     // TODO @ASY-11
+
 
 
 
