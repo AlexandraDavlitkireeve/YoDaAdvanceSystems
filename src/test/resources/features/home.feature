@@ -13,6 +13,12 @@ Feature: Home Page Test
     And Verify Fairfax, VA, USA is displayed
     And Verify Phone: "703-831-3217" is displayed
 
+  @ASY-4
+  Scenario: Parallax section
+    Then header is displayed
+    And verify description is displayed
+    And verify read more button is displayed
+
   @ASY-6 @smoke
   Scenario: Title of the home page
     Then Verify Title of the homepage should be "Advance Systems - Home"
@@ -29,22 +35,6 @@ Feature: Home Page Test
       | English            |
       | Spanish            |
       | French             |
-
-  @ASY-4
-  Scenario: Parallax section
-    Then header is displayed
-    And verify description is displayed
-    And verify read more button is displayed
-
-
-
-
-
-
-
-
-
-
 
   @ASY-8 @smoke
   Scenario Outline: Main social media section
