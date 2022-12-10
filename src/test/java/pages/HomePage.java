@@ -24,9 +24,8 @@ public class HomePage {
     @FindBy (xpath = "//div[@class= 'top-right flex-box-three']")
     public WebElement navBtn;
 
-    @FindBy (xpath = "//title[text()='Advance Systems - Home']" )
-    public WebElement titleHomepage;
-
+//    @FindBy (xpath = "//*[contains(text(), 'Advance Systems - Home')]" )
+//    public WebElement titleHomepage;
 
     @FindBy(xpath = "//h2[@class='white-heading']")
     public WebElement headerParallax ;
@@ -40,8 +39,12 @@ public class HomePage {
     @FindBy(xpath = "//h2[text()='Words from our Clients']")
     public WebElement headerTxt;
 
-    @FindBy(xpath = "//div[@class='text' and contains(text(), 'These guys')]")
+    @FindBy(xpath = "//div[@class='owl-item']//div[contains(text(), 'These guys')]")
     public List<WebElement> testMsg;
+
+    @FindBy(xpath = "//div[@class='testimonial-outer']")
+    public WebElement activeMsg;
+
 
     @FindBy(xpath = "//div[@class='thumb-item']")
     public WebElement eachPerson;
@@ -49,4 +52,9 @@ public class HomePage {
     @FindBy(xpath = "//div[@class='designation']")
     public WebElement city;
 
+    @FindBy(xpath = "//ul[@class='social-icon-six']/li")
+    public WebElement mediaBtn;
+
+    @FindBy(xpath = "//div[@class='owl-next']")
+    public WebElement nextBtn;
 }

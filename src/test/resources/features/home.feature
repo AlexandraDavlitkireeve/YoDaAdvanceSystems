@@ -39,7 +39,19 @@ Feature: Home Page Test
   @ASY-12
   Scenario: Testimonials
     Then Verify header "Words from our Clients" is Displayed
-    Then Verify testimonials are displayed
+    Then Verify testimonials, person's name and city are displayed
+
+  @ASY-16 @smoke
+    Scenario Outline: Test footer social media links are displayed
+    Then Verify  "<social media>" buttons are displayed
+    Examples:
+    |social media|
+    |facebook    |
+    |twitter     |
+    |skype       |
+    |linkedin    |
+
+
 
 
 
