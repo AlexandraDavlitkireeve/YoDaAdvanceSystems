@@ -4,6 +4,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import pages.CommonPage;
 import pages.HomePage;
 import utils.BrowserUtils;
@@ -20,6 +21,8 @@ public class Home_steps implements CommonPage
     {
         this.page = new HomePage();
     }
+
+
 
     // TODO @ASY-3 @smoke
     @Then("verify 10090 Main Street is displayed")
@@ -90,6 +93,7 @@ public class Home_steps implements CommonPage
         }
     }
 
+
     // TODO @ASY-9
 
 
@@ -98,10 +102,16 @@ public class Home_steps implements CommonPage
 
 
     // TODO @ASY-10
-
-
-
-
+    @Then("Verify {string} button above the main content of the home page")
+    public void verifyButtonAboveTheMainContentOfTheHomePage(String btn)
+    {
+        BrowserUtils.click(page.joinNowBtn);
+    }
+    @And("Verify button should take the user to {string} page")
+    public void verifyButtonShouldTakeTheUserToPage(String joinUsTxt) throws InterruptedException {
+        BrowserUtils.waitForElementVisibility(page.joinUsTxt);
+        BrowserUtils.assertEquals(BrowserUtils.getText(page.joinUsTxt), "Join Us");
+    }
 
     // TODO @ASY-11
 
