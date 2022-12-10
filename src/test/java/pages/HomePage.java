@@ -40,8 +40,8 @@ public class HomePage {
     @FindBy(xpath = "//h2[text()='Words from our Clients']")
     public WebElement headerTxt;
 
-    @FindBy(xpath = "//div[@class='testimonial-block-one']")
-    public WebElement msgBlock;
+    @FindBy(xpath = "//div[@class='text' and contains(text(), 'These guys')]")
+    public List<WebElement> testMsg;
 
     @FindBy(xpath = "//div[@class='thumb-item']")
     public WebElement eachPerson;

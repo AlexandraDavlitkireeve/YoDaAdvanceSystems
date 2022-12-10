@@ -75,4 +75,12 @@ public class Home_steps {
     public void verifyHeaderIsDisplayed(String headerTxt) {
         BrowserUtils.assertEquals(page.headerTxt.getText(), headerTxt);
     }
+
+    @Then("Verify testimonials are displayed")
+    public void verifyTestimonialsAreDisplayed() {
+        List<WebElement> testimonials = page.testMsg;
+        for (WebElement each : testimonials) {
+            BrowserUtils.isDisplayed(each);
+        }
+    }
 }
