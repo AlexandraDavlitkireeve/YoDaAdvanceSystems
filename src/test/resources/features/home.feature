@@ -45,3 +45,16 @@ Feature: Home Page Test
       | Twitter    |
       | Google     |
       | LinkedIn   |
+
+  @ASY-9 @smoke
+
+
+
+
+
+
+  @ASY-10 @smoke
+   Scenario: Main call to cation button
+    Then Verify "Join Now" button above the main content of the home page
+    And Verify button should take the user to "Join Us" page
+
