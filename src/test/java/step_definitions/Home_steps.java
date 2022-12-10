@@ -4,8 +4,11 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import pages.HomePage;
 import utils.BrowserUtils;
+
+import java.util.List;
 
 public class Home_steps {
     @Given("Navigate to Home page")
@@ -49,7 +52,7 @@ public class Home_steps {
 
     @Then("Verify Title of the homepage should be {string}")
     public void verifyTitleOfTheHomepageShouldBe(String titletext) {
-        BrowserUtils.assertEquals("Advance Systems - Home", titletext);
+        BrowserUtils.assertEquals(page.titleHomepage.getText(),titletext);
 
     }
 
@@ -68,4 +71,8 @@ public class Home_steps {
         BrowserUtils.isDisplayed(page.moreButton);
     }
 
+    @Then("Verify header {string} is Displayed")
+    public void verifyHeaderIsDisplayed(String headerTxt) {
+        BrowserUtils.assertEquals(page.headerTxt.getText(), headerTxt);
+    }
 }

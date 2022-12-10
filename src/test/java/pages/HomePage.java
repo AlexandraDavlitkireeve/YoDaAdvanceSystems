@@ -5,6 +5,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utils.BrowserUtils;
 
+import java.util.List;
+
 public class HomePage {
     public HomePage() {
         PageFactory.initElements(BrowserUtils.getDriver(), this);
@@ -22,7 +24,7 @@ public class HomePage {
     @FindBy (xpath = "//div[@class= 'top-right flex-box-three']")
     public WebElement navBtn;
 
-    @FindBy (xpath = "//title" )
+    @FindBy (xpath = "//title[text()='Advance Systems - Home']" )
     public WebElement titleHomepage;
 
 
@@ -34,5 +36,17 @@ public class HomePage {
 
     @FindBy(xpath = "//div[@class='tp-mask-wrap']//div[@class='text'][1]")
     public WebElement description;
+
+    @FindBy(xpath = "//h2[text()='Words from our Clients']")
+    public WebElement headerTxt;
+
+    @FindBy(xpath = "//div[@class='testimonial-block-one']")
+    public WebElement msgBlock;
+
+    @FindBy(xpath = "//div[@class='thumb-item']")
+    public WebElement eachPerson;
+
+    @FindBy(xpath = "//div[@class='designation']")
+    public WebElement city;
 
 }

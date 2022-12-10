@@ -35,3 +35,9 @@ Feature: Home Page Test
     Then header is displayed
     And verify description is displayed
     And verify read more button is displayed
+
+  @ASY-12
+  Scenario: Testimonials
+    Then Verify header "Words from our Clients" is Displayed
+
+
