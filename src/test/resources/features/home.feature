@@ -36,6 +36,7 @@ Feature: Home Page Test
       | Spanish            |
       | French             |
 
+
   @ASY-8 @smoke
   Scenario Outline: Main social media section
     Then Verify button "<nav button>" is clickable
@@ -43,7 +44,7 @@ Feature: Home Page Test
       | nav button |
       | Facebook   |
       | Twitter    |
-      | Google     |
+      | Instagram  |
       | LinkedIn   |
 
   @ASY-9 @smoke
@@ -65,6 +66,7 @@ Feature: Home Page Test
     Then Verify "Join Now" button above the main content of the home page
     And Verify button should take the user to "Join Us" page
 
+
   @ASY-12
   Scenario: Testimonials
     Then Verify header "Words from our Clients" is Displayed
@@ -76,14 +78,14 @@ Feature: Home Page Test
 
 
   @ASY-16 @smoke
-    Scenario Outline: Test footer social media links are displayed
+  Scenario Outline: Test footer social media links are displayed
     Then Verify  "<social media>" buttons are displayed
     Examples:
-    |social media|
-    |facebook    |
-    |twitter     |
-    |skype       |
-    |linkedin    |
+      | social media |
+      | facebook     |
+      | twitter      |
+      | skype        |
+      | linkedin     |
 
 
 
