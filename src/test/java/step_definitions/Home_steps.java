@@ -137,12 +137,8 @@ public class Home_steps implements CommonPage {
 
     @Then("Verify {string} is displayed")
     public void verifyIsDisplayed(String info) {
-        List<WebElement> contactInfo = page.footerInfo;
-        for (WebElement each : contactInfo) {
-            System.out.println(each.getText());
-            BrowserUtils.assertEquals(each.getText(), info);
-            System.out.println(info + "expected");
-        }
+
+        BrowserUtils.assertTrue(page.footerInfo1.getText().contains(info));
 
     }
 }
