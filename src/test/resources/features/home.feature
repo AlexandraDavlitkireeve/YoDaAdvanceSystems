@@ -44,7 +44,7 @@ Feature: Home Page Test
       | nav button |
       | Facebook   |
       | Twitter    |
-      | Google     |
+      | Instagram  |
       | LinkedIn   |
 
   @ASY-9 @smoke
