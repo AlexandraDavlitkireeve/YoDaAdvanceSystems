@@ -72,6 +72,10 @@ Feature: Home Page Test
     Then Verify header "Words from our Clients" is Displayed
     Then Verify testimonials, person's name and city are displayed
 
+  @ASY-13 @smoke
+  Scenario: List of companies
+    Then Verify Company  names are  display in one row
+
   @ASY-16 @smoke
   Scenario Outline: Test footer social media links are displayed
     Then Verify  "<social media>" buttons are displayed
@@ -81,6 +85,11 @@ Feature: Home Page Test
       | twitter      |
       | skype        |
       | linkedin     |
+
+
+
+
+
 
 
 

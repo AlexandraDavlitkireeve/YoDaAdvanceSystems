@@ -89,6 +89,9 @@ public class HomePage {
     // TODO @ASY-11
 
 
+    //TODO @ASY-13
 
+    @FindBy(xpath = "//div[contains(@class, 'six-item-carousel')]" )
+    public WebElement listOfCompany;
 
 }
