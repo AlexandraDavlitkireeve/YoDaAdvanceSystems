@@ -42,10 +42,10 @@ Feature: Home Page Test
     Then Verify button "<nav button>" is clickable
     Examples:
       | nav button |
-      | Facebook   |
-      | Twitter    |
-      | Instagram  |
-      | LinkedIn   |
+      | facebook   |
+      | twitter    |
+      | instagram  |
+      | linkedin   |
 
   @ASY-9 @smoke
   Scenario Outline: Page navigation bar

@@ -9,7 +9,6 @@ import org.openqa.selenium.WebElement;
 import pages.CommonPage;
 import pages.HomePage;
 import utils.BrowserUtils;
-
 import java.util.List;
 
 public class Home_steps implements CommonPage {
@@ -26,17 +25,20 @@ public class Home_steps implements CommonPage {
     }
 
     @Then("verify 10090 Main Street is displayed")
-    public void verify_10090_Main_Street_is_displayed() {
+    public void verify_10090_Main_Street_is_displayed()
+    {
         BrowserUtils.assertEquals(BrowserUtils.getText(page.streetAddress), "10090 Main Street");
     }
 
     @And("Verify Fairfax, VA, USA is displayed")
-    public void Verify_Fairfax_VA_USA_is_displayed() {
+    public void Verify_Fairfax_VA_USA_is_displayed()
+    {
         BrowserUtils.assertEquals(BrowserUtils.getText(page.townAndState), "Fairfax, VA, USA");
     }
 
     @And("Verify Phone: {string} is displayed")
-    public void verifyPhoneIsDisplayed(String phone) {
+    public void verifyPhoneIsDisplayed(String phone)
+    {
         BrowserUtils.assertEquals(BrowserUtils.getText(page.phoneNumber), "+1 703-831-3217");
     }
 
@@ -88,36 +90,34 @@ public class Home_steps implements CommonPage {
         BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_CONTAINS_CLASS, mediaBtn))));
     }
 
-    @Then("Verify button {string} is clickable")
-    public void verify_button_is_clickable(String btn) {
-        switch (btn.toLowerCase()) {
-            case "facebook":
-                BrowserUtils.click(page.faceBookBtn);
-                break;
-            case "twitter":
-                BrowserUtils.click(page.twitterBtn);
-                break;
-            case "instagram":
-                BrowserUtils.click(page.instagramBtn);
-                break;
-            case "linkedin":
-                BrowserUtils.click(page.linkedInBtn);
-                break;
-            default:
-                BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_BUTTON))));
-        }
+       @Then("Verify button {string} is clickable")
+    public void verify_button_is_clickable(String btn)
+    {
+        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT2, btn))));
+        BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT2, btn))));
+        BrowserUtils.assertTrue(BrowserUtils.getDriver().getTitle().toLowerCase().contains(btn));
+
     }
 
     @Then("Verify main navigation bar")
-    public void verifyMainNavigationBar() {
+    public void verifyMainNavigationBar()
+    {
+        BrowserUtils.isDisplayed(page.mainBar);
     }
 
     @And("Verify secondary Navigation bar is visible after scroll")
-    public void verifyButtonBarIsVisibleAfterScroll() {
+    public void verifyButtonBarIsVisibleAfterScroll() throws InterruptedException {
+        JavascriptExecutor js = (JavascriptExecutor) BrowserUtils.getDriver();
+        js.executeScript("window.scrollBy(0, 1000)"); //Scroll vertically down by 1000 pixels
+        BrowserUtils.isDisplayed(page.secondBar);
+        Thread.sleep(7000);
     }
 
     @And("Verify button {string} take the user to corresponding page when click")
-    public void verifyButtonTakeTheUserToCorrespondingPageWhenClick(String bar) {
+    public void verifyButtonTakeTheUserToCorrespondingPageWhenClick(String bar) throws InterruptedException
+    {
+        BrowserUtils.click(page.navBar);
+        Thread.sleep(7000);
     }
 
     @Then("Verify {string} button above the main content of the home page")
