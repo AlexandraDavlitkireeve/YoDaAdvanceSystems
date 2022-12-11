@@ -12,6 +12,7 @@ import org.openqa.selenium.WebElement;
 import pages.CommonPage;
 import pages.HomePage;
 import utils.BrowserUtils;
+
 import java.util.List;
 
 public class Home_steps implements CommonPage {
@@ -133,6 +134,7 @@ public class Home_steps implements CommonPage {
     }
 
 
+
     // TODO @ASY-10
     @Then("Verify {string} button above the main content of the home page")
     public void verifyButtonAboveTheMainContentOfTheHomePage(String btn) {
@@ -144,6 +146,15 @@ public class Home_steps implements CommonPage {
         BrowserUtils.waitForElementVisibility(page.joinUsTxt);
         BrowserUtils.assertEquals(BrowserUtils.getText(page.joinUsTxt), "Join Us");
     }
+
+
+
+    @Then("Verify Company  names are  display in one row")
+    public void verifyCompanyNamesAreDisplayInOneRow() {
+        BrowserUtils.isDisplayed(page.listOfCompany);
+    }
+
+
 
     // TODO @ASY-11
 
