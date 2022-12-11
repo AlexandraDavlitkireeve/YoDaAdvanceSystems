@@ -8,4 +8,5 @@ public interface CommonPage
     String XPATH_TEMPLATE_TEXT_CONTAINS = "//*[contains(text(), '%s')]";
     String XPATH_TEMPLATE_INPUT_FIELD = "//input[@placeholder='%s']";
     String XPATH_TEMPLATE_CONTAINS_CLASS ="//a//span[contains(@class, '%s')]";
+    String XPATH_TEMPLATE_NAV_BAR = "//div[@class='right-col pull-right']//a[contains(text(), '%s')]";
 }

@@ -69,9 +69,6 @@ public class HomePage {
     @FindBy(xpath = "//a[@href='https://linkedin.com']")
     public WebElement linkedInBtn;
 
-    @FindBy(xpath = "")
-    public WebElement mainBar;
-
     @FindBy(xpath = "//a[text()='Join Now']")
     public WebElement joinNowBtn;
 
@@ -84,9 +81,4 @@ public class HomePage {
     @FindBy(xpath = "//ul[@class='list-info']")
     public WebElement footerInfo1;
 
-    @FindBy(xpath = "//div[@class='right-col pull-right']//ul[@class='navigation clearfix']//li")
-    public WebElement navBar;
-
-    @FindBy(xpath = "//div[@class='sticky-header']")
-    public WebElement secondBar;
 }

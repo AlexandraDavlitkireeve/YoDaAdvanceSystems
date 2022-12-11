@@ -49,7 +49,7 @@ Feature: Home Page Test
 
   @ASY-9 @smoke
   Scenario Outline: Page navigation bar
-#    Then Verify main navigation bar
+    Then Verify main navigation bar
     And Verify secondary Navigation bar is visible after scroll
     And Verify button "<nav button>" take the user to corresponding page when click
     Examples:
@@ -77,7 +77,7 @@ Feature: Home Page Test
     Then Verify Company  names are  display in one row
 
   @ASY-14 @smoke
-  Scenario Outline:: Footer contact info
+  Scenario Outline: Footer contact info
     Then Verify "<contact info>" is displayed
     Examples:
       | contact info                          |

@@ -108,21 +108,16 @@ public class Home_steps implements CommonPage {
         }
     }
 
-//    @Then("Verify main navigation bar")
-//    public void verifyMainNavigationBar() {
-//    }
-//
+    @Then("Verify main navigation bar")
+    public void verifyMainNavigationBar() {
+    }
+
     @And("Verify secondary Navigation bar is visible after scroll")
-    public void verifyButtonBarIsVisibleAfterScroll() throws InterruptedException {
-        JavascriptExecutor js = (JavascriptExecutor) BrowserUtils.getDriver();
-        js.executeScript("window.scrollBy(0, 1000)"); //Scroll vertically down by 1000 pixels
-        BrowserUtils.isDisplayed(page.secondBar);
+    public void verifyButtonBarIsVisibleAfterScroll() {
     }
 
     @And("Verify button {string} take the user to corresponding page when click")
-    public void verifyButtonTakeTheUserToCorrespondingPageWhenClick(String bar) throws InterruptedException {
-        BrowserUtils.click(page.navBar);
-        //Thread.sleep(7000);
+    public void verifyButtonTakeTheUserToCorrespondingPageWhenClick(String bar) {
     }
 
     @Then("Verify {string} button above the main content of the home page")
