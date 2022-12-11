@@ -82,8 +82,8 @@ public class Home_steps implements CommonPage
             case "twitter":
                 BrowserUtils.click(page.twitterBtn);
                 break;
-            case "google":
-                BrowserUtils.click(page.googleBtn);
+            case "instagram":
+                BrowserUtils.click(page.instagramBtn);
                 break;
             case "linkedin":
                 BrowserUtils.click(page.linkedInBtn);
@@ -96,8 +96,18 @@ public class Home_steps implements CommonPage
 
     // TODO @ASY-9
 
-
-
+    @Then("Verify main navigation bar")
+    public void verifyMainNavigationBar()
+    {
+    }
+    @And("Verify secondary Navigation bar is visible after scroll")
+    public void verifyButtonBarIsVisibleAfterScroll()
+    {
+    }
+    @And("Verify button {string} take the user to corresponding page when click")
+    public void verifyButtonTakeTheUserToCorrespondingPageWhenClick(String arg0)
+    {
+    }
 
 
 
@@ -113,6 +123,13 @@ public class Home_steps implements CommonPage
         BrowserUtils.assertEquals(BrowserUtils.getText(page.joinUsTxt), "Join Us");
     }
 
+
+
+
     // TODO @ASY-11
+
+
+
+    // TODO @ASY-12
 
 }

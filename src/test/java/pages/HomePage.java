@@ -42,15 +42,15 @@ public class HomePage {
     @FindBy(xpath = "//a[@href='https://twitter.com']")
     public WebElement twitterBtn;
 
-    @FindBy(xpath = "//a[@href='https://google.com']")
-    public WebElement googleBtn;
+    @FindBy(xpath = "//a[@href='https://instagram.com']")
+    public WebElement instagramBtn;
 
     @FindBy(xpath = "//a[@href='https://linkedin.com']")
     public WebElement linkedInBtn;
 
     // TODO @ASY-9
-
-
+    @FindBy(xpath = "")
+    public WebElement mainBar;
 
 
 
