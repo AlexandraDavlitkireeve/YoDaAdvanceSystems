@@ -116,7 +116,7 @@ public class Home_steps implements CommonPage
     }
 
 
-    @Then("Then Verify button {string} is displayed")
+    @Then("Then Verify {string} is displayed")
     public void thenVerifyButtonIsDisplayed(String info) {
         List<WebElement> contactInfo = page.footerInfo;
         for (WebElement each : contactInfo) {

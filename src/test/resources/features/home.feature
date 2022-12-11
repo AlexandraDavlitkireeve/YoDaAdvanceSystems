@@ -61,7 +61,7 @@ Feature: Home Page Test
 
   @ASY-14 @smoke
   Scenario Outline:: Footer contact info
-  Then Then Verify button "<contact info>" is displayed
+  Then Verify "<contact info>" is displayed
     Examples:
       | contact info                          |
       | Address: 10090 Main St, Fairfax, VA   |
