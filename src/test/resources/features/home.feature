@@ -42,20 +42,22 @@ Feature: Home Page Test
     And verify description is displayed
     And verify read more button is displayed
 
-#  @ASY-12
-#  Scenario: Testimonials
-#    Then Verify header "Words from our Clients" is Displayed
-#    Then Verify testimonials, person's name and city are displayed
-#
-#  @ASY-16 @smoke
-#  Scenario Outline: Test footer social media links are displayed
-#    Then Verify  "<social media>" buttons are displayed
-#    Examples:
-#      | social media |
-#      | facebook     |
-#      | twitter      |
-#      | skype        |
-#      | linkedin     |
+
+  @ASY-12
+  Scenario: Testimonials
+    Then Verify header "Words from our Clients" is Displayed
+    Then Verify testimonials, person's name and city are displayed
+
+  @ASY-16 @smoke
+    Scenario Outline: Test footer social media links are displayed
+    Then Verify  "<social media>" buttons are displayed
+    Examples:
+    |social media|
+    |facebook    |
+    |twitter     |
+    |skype       |
+    |linkedin    |
+
 
   @ASY-8 @smoke
   Scenario Outline: Main social media section
@@ -76,6 +78,7 @@ Feature: Home Page Test
     And Verify button should take the user to "Join Us" page
 
 
+
     @ASY-9 @smoke
   Scenario Outline: Page navigation bar
     Then Verify main navigation bar
@@ -89,11 +92,4 @@ Feature: Home Page Test
       | Clients    |
       | Join Us    |
       | Contact Us |
-
-
-
-
-
-
-
 

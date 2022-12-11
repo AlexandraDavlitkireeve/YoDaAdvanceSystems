@@ -4,14 +4,21 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
+
 import org.openqa.selenium.WebDriver;
+
+import org.openqa.selenium.WebElement;
+
 import pages.CommonPage;
 import pages.HomePage;
 import utils.BrowserUtils;
+import java.util.List;
 
-public class Home_steps implements CommonPage
-{
+public class Home_steps implements CommonPage {
+
+
     // TODO @ASY-1
+
     @Given("Navigate to Home page")
     public void navigate_to_home_page() {
         BrowserUtils.getDriver();
@@ -43,12 +50,14 @@ public class Home_steps implements CommonPage
 
     @Then("Verify button {string} is displayed")
     public void verifyButtonIsDisplayed(String button) {
-        BrowserUtils.isDisplayed(page.navBtn);
+        BrowserUtils.assertEquals(page.navBtn.getText(), button);
+        //BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, button))));
     }
 
     @Then("Verify Title of the homepage should be {string}")
     public void verifyTitleOfTheHomepageShouldBe(String titletext) {
-        BrowserUtils.assertEquals("Advance Systems - Home", titletext);
+        //BrowserUtils.assertEquals(page.titleHomepage.getText(),titletext);
+        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), titletext);
 
     }
 
@@ -67,9 +76,24 @@ public class Home_steps implements CommonPage
         BrowserUtils.isDisplayed(page.moreButton);
     }
 
+    @Then("Verify header {string} is Displayed")
+    public void verifyHeaderIsDisplayed(String headerTxt) {
+        BrowserUtils.assertEquals(page.headerTxt.getText(), headerTxt);
+    }
 
+    @Then("Verify testimonials, person's name and city are displayed")
+    public void verifyTestimonialsPersonSNameAndCityAreDisplayed() {
+        List<WebElement> testimonials = page.testMsg;
+        for (WebElement each : testimonials) {
+            BrowserUtils.isDisplayed(each);
+            System.out.println(page.activeMsg.getText());
+        }
+    }
+    @Then("Verify  {string} buttons are displayed")
+    public void verifyButtonsAreDisplayed(String mediaBtn) {
 
-
+        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_CONTAINS_CLASS, mediaBtn))));
+    }
 
 
     // TODO @ASY-8 @smoke
@@ -125,11 +149,24 @@ public class Home_steps implements CommonPage
 
 
 
+    @Then("Verify {string} button above the main content of the home page")
+    public void verifyButtonAboveTheMainContentOfTheHomePage(String btn)
+    {
+        BrowserUtils.click(page.joinNowBtn);
+    }
+    @And("Verify button should take the user to {string} page")
+    public void verifyButtonShouldTakeTheUserToPage(String joinUsTxt) throws InterruptedException {
+        BrowserUtils.waitForElementVisibility(page.joinUsTxt);
+        Thread.sleep(2000);
+        BrowserUtils.assertEquals(BrowserUtils.getText(page.joinUsTxt), "Join Us");
+    }
+
 
     // TODO @ASY-11
 
 
 
     // TODO @ASY-12
+
 
 }
