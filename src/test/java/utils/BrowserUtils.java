@@ -43,19 +43,19 @@ public class BrowserUtils {
 
     private static void initializeDriver(String browser) {
 
-            switch (browser) {
-                case "chrome":
-                    WebDriverManager.chromedriver().setup();
-                    //System.setProperty("webdriver.chrome.driver", "C:\\Users\\sashi\\OneDrive\\Desktop\\Selenium\\libs\\chromedriver.exe");
-                    driver = new ChromeDriver();
-                    break;
-                case "firefox":
-                    WebDriverManager.firefoxdriver().setup();
-                    driver = new FirefoxDriver();
-                    break;
-                default:
-                    System.out.println("Invalid browser name");
-            }
+        switch (browser) {
+            case "chrome":
+                WebDriverManager.chromedriver().setup();
+                //System.setProperty("webdriver.chrome.driver", "C:\\Users\\sashi\\OneDrive\\Desktop\\Selenium\\libs\\chromedriver.exe");
+                driver = new ChromeDriver();
+                break;
+            case "firefox":
+                WebDriverManager.firefoxdriver().setup();
+                driver = new FirefoxDriver();
+                break;
+            default:
+                System.out.println("Invalid browser name");
+        }
 
 
         driver.manage().window().maximize();
@@ -69,7 +69,7 @@ public class BrowserUtils {
     }
 
     public static void waitForElementVisibility(WebElement element) {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, 20);
         wait.until(ExpectedConditions.visibilityOf(element));
     }
 
@@ -94,7 +94,7 @@ public class BrowserUtils {
                     js.executeScript("arguments[0].setAttribute('style', arguments[1]);", element, "color: black;" +
                             "border: 3px solid red; background: yellow");
                     //TODO: apply report screenshot here
-                   // CucumberLogUtils.logInfo(element.toString(), ConfigReader.readProperty("takeScreenshot"));
+                    // CucumberLogUtils.logInfo(element.toString(), ConfigReader.readProperty("takeScreenshot"));
                 } else {
                     sleep(500);
                     js.executeScript("arguments[0].setAttribute('style', arguments[1]);", element, "");
@@ -181,13 +181,16 @@ public class BrowserUtils {
         return element.isEnabled();
     }
 
-    public static void switchToNewWindow(WebDriver driver) {
-        for (String each : BrowserUtils.driver.getWindowHandles()) {
-            if (!each.equals(BrowserUtils.driver.getWindowHandle())) {
-                BrowserUtils.driver.switchTo().window(each);
+    public static void switchToNewWindow() {
+        for (String each : driver.getWindowHandles()) {
+            if (!each.equals(driver.getWindowHandle())) {
+                driver.switchTo().window(each);
             }
         }
     }
 
 
 }
+
+}
+

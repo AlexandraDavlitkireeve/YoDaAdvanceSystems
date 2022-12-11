@@ -24,9 +24,8 @@ public class HomePage {
     @FindBy (xpath = "//div[@class= 'top-right flex-box-three']")
     public WebElement navBtn;
 
-    @FindBy (xpath = "//title" )
-    public WebElement titleHomepage;
-
+//    @FindBy (xpath = "//*[contains(text(), 'Advance Systems - Home')]" )
+//    public WebElement titleHomepage;
 
     @FindBy(xpath = "//h2[@class='white-heading']")
     public WebElement headerParallax ;
@@ -37,6 +36,27 @@ public class HomePage {
     @FindBy(xpath = "//div[@class='tp-mask-wrap']//div[@class='text'][1]")
     public WebElement description;
 
+    @FindBy(xpath = "//h2[text()='Words from our Clients']")
+    public WebElement headerTxt;
+
+    @FindBy(xpath = "//div[@class='owl-item']//div[contains(text(), 'These guys')]")
+    public List<WebElement> testMsg;
+
+    @FindBy(xpath = "//div[@class='testimonial-outer']")
+    public WebElement activeMsg;
+
+    @FindBy(xpath = "//div[@class='thumb-item']")
+    public WebElement eachPerson;
+
+    @FindBy(xpath = "//div[@class='designation']")
+    public WebElement city;
+
+    @FindBy(xpath = "//ul[@class='social-icon-six']/li")
+    public WebElement mediaBtn;
+
+    @FindBy(xpath = "//div[@class='owl-next']")
+    public WebElement nextBtn;
+
     // TODO @ASY-8
     @FindBy(xpath = "//a[@href='https://facebook.com']")
     public WebElement faceBookBtn;
@@ -44,15 +64,15 @@ public class HomePage {
     @FindBy(xpath = "//a[@href='https://twitter.com']")
     public WebElement twitterBtn;
 
-    @FindBy(xpath = "//a[@href='https://google.com']")
-    public WebElement googleBtn;
+    @FindBy(xpath = "//a[@href='https://instagram.com']")
+    public WebElement instagramBtn;
 
     @FindBy(xpath = "//a[@href='https://linkedin.com']")
     public WebElement linkedInBtn;
 
     // TODO @ASY-9
-
-
+    @FindBy(xpath = "")
+    public WebElement mainBar;
 
 
 
@@ -74,6 +94,8 @@ public class HomePage {
     public List<WebElement> footerInfo;
 
 
+
     @FindBy(xpath = "//ul[@class='list-info']")
     public WebElement footerInfo1;
+
 }

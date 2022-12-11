@@ -46,18 +46,25 @@ Feature: Home Page Test
       | Google     |
       | LinkedIn   |
 
-
   @ASY-9 @smoke
-
-
-
-
-
+  Scenario Outline: Page navigation bar
+    Then Verify main navigation bar
+    And Verify secondary Navigation bar is visible after scroll
+    And Verify button "<nav button>" take the user to corresponding page when click
+    Examples:
+      | nav button |
+      | Home       |
+      | About Us   |
+      | Services   |
+      | Clients    |
+      | Join Us    |
+      | Contact Us |
 
   @ASY-10 @smoke
-   Scenario: Main call to cation button
+  Scenario: Main call to cation button
     Then Verify "Join Now" button above the main content of the home page
     And Verify button should take the user to "Join Us" page
+
 
   @ASY-14 @smoke
   Scenario Outline:: Footer contact info
@@ -68,3 +75,20 @@ Feature: Home Page Test
       | Phone: +1 703-831-3217                |
       | Email: info@advancesystems.us         |
       | Mon to Sat: 9.00 am to 5:00 pm        |
+
+  @ASY-12
+  Scenario: Testimonials
+    Then Verify header "Words from our Clients" is Displayed
+    Then Verify testimonials, person's name and city are displayed
+
+  @ASY-16 @smoke
+    Scenario Outline: Test footer social media links are displayed
+    Then Verify  "<social media>" buttons are displayed
+    Examples:
+    |social media|
+    |facebook    |
+    |twitter     |
+    |skype       |
+    |linkedin    |
+
+
