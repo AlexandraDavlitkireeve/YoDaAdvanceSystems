@@ -17,9 +17,6 @@ import java.util.List;
 
 public class Home_steps implements CommonPage {
 
-
-    // TODO @ASY-1
-
     @Given("Navigate to Home page")
     public void navigate_to_home_page() {
         BrowserUtils.getDriver();
@@ -31,8 +28,6 @@ public class Home_steps implements CommonPage {
         this.page = new HomePage();
     }
 
-
-    // TODO @ASY-3 @smoke
     @Then("verify 10090 Main Street is displayed")
     public void verify_10090_Main_Street_is_displayed() {
         BrowserUtils.assertEquals(BrowserUtils.getText(page.streetAddress), "10090 Main Street");
@@ -96,8 +91,6 @@ public class Home_steps implements CommonPage {
         BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_CONTAINS_CLASS, mediaBtn))));
     }
 
-
-    // TODO @ASY-8 @smoke
     @Then("Verify button {string} is clickable")
     public void verify_button_is_clickable(String btn) {
         switch (btn.toLowerCase()) {
@@ -118,9 +111,6 @@ public class Home_steps implements CommonPage {
         }
     }
 
-
-    // TODO @ASY-9
-
     @Then("Verify main navigation bar")
     public void verifyMainNavigationBar() {
     }
@@ -133,9 +123,6 @@ public class Home_steps implements CommonPage {
     public void verifyButtonTakeTheUserToCorrespondingPageWhenClick(String arg0) {
     }
 
-
-
-    // TODO @ASY-10
     @Then("Verify {string} button above the main content of the home page")
     public void verifyButtonAboveTheMainContentOfTheHomePage(String btn) {
         BrowserUtils.click(page.joinNowBtn);
@@ -147,19 +134,19 @@ public class Home_steps implements CommonPage {
         BrowserUtils.assertEquals(BrowserUtils.getText(page.joinUsTxt), "Join Us");
     }
 
-
-
     @Then("Verify Company  names are  display in one row")
     public void verifyCompanyNamesAreDisplayInOneRow() {
         BrowserUtils.isDisplayed(page.listOfCompany);
     }
 
+    @Then("Verify {string} is displayed")
+    public void verifyIsDisplayed(String info) {
+        List<WebElement> contactInfo = page.footerInfo;
+        for (WebElement each : contactInfo) {
+            System.out.println(each.getText());
+            BrowserUtils.assertEquals(each.getText(), info);
+            System.out.println(info + "expected");
+        }
 
-
-    // TODO @ASY-11
-
-
-    // TODO @ASY-12
-
-
+    }
 }
