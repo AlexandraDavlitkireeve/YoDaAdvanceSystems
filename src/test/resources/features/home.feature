@@ -72,17 +72,7 @@ Feature: Home Page Test
 
   @ASY-13 @smoke
   Scenario: List of companies
-    Then Verify Company  names are  display in one row
-
-  @ASY-14 @smoke
-  Scenario Outline:: Footer contact info
-    Then Verify "<contact info>" is displayed
-    Examples:
-      | contact info                          |
-      | Address: 10090 Main St, Fairfax, VA   |
-      | Phone: +1 703-831-3217                |
-      | Email: info@advancesystems.us         |
-      | Mon to Sat: 9.00 am to 5:00 pm        |
+    Then Verify Company  names are  display in one ro
 
   @ASY-16 @smoke
     Scenario Outline: Test footer social media links are displayed
