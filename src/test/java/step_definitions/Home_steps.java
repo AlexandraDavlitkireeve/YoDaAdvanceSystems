@@ -4,14 +4,11 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
-
-import org.openqa.selenium.WebDriver;
-
 import org.openqa.selenium.WebElement;
-
 import pages.CommonPage;
 import pages.HomePage;
 import utils.BrowserUtils;
+
 import java.util.List;
 
 public class Home_steps implements CommonPage {
@@ -23,28 +20,27 @@ public class Home_steps implements CommonPage {
     public void navigate_to_home_page() {
         BrowserUtils.getDriver();
     }
+
     HomePage page;
-    public Home_steps()
-    {
+
+    public Home_steps() {
         this.page = new HomePage();
     }
 
 
-
     // TODO @ASY-3 @smoke
     @Then("verify 10090 Main Street is displayed")
-    public void verify_10090_Main_Street_is_displayed()
-    {
+    public void verify_10090_Main_Street_is_displayed() {
         BrowserUtils.assertEquals(BrowserUtils.getText(page.streetAddress), "10090 Main Street");
     }
+
     @And("Verify Fairfax, VA, USA is displayed")
-    public void Verify_Fairfax_VA_USA_is_displayed()
-    {
+    public void Verify_Fairfax_VA_USA_is_displayed() {
         BrowserUtils.assertEquals(BrowserUtils.getText(page.townAndState), "Fairfax, VA, USA");
     }
+
     @And("Verify Phone: {string} is displayed")
-    public void verifyPhoneIsDisplayed(String phone)
-    {
+    public void verifyPhoneIsDisplayed(String phone) {
         BrowserUtils.assertEquals(BrowserUtils.getText(page.phoneNumber), "+1 703-831-3217");
     }
 
@@ -89,6 +85,7 @@ public class Home_steps implements CommonPage {
             System.out.println(page.activeMsg.getText());
         }
     }
+
     @Then("Verify  {string} buttons are displayed")
     public void verifyButtonsAreDisplayed(String mediaBtn) {
 
@@ -121,43 +118,27 @@ public class Home_steps implements CommonPage {
     // TODO @ASY-9
 
     @Then("Verify main navigation bar")
-    public void verifyMainNavigationBar()
-    {
-    }
-    @And("Verify secondary Navigation bar is visible after scroll")
-    public void verifyButtonBarIsVisibleAfterScroll()
-    {
-    }
-    @And("Verify button {string} take the user to corresponding page when click")
-    public void verifyButtonTakeTheUserToCorrespondingPageWhenClick(String arg0)
-    {
+    public void verifyMainNavigationBar() {
     }
 
+    @And("Verify secondary Navigation bar is visible after scroll")
+    public void verifyButtonBarIsVisibleAfterScroll() {
+    }
+
+    @And("Verify button {string} take the user to corresponding page when click")
+    public void verifyButtonTakeTheUserToCorrespondingPageWhenClick(String arg0) {
+    }
 
 
     // TODO @ASY-10
     @Then("Verify {string} button above the main content of the home page")
-    public void verifyButtonAboveTheMainContentOfTheHomePage(String btn)
-    {
+    public void verifyButtonAboveTheMainContentOfTheHomePage(String btn) {
         BrowserUtils.click(page.joinNowBtn);
     }
+
     @And("Verify button should take the user to {string} page")
     public void verifyButtonShouldTakeTheUserToPage(String joinUsTxt) throws InterruptedException {
         BrowserUtils.waitForElementVisibility(page.joinUsTxt);
-        BrowserUtils.assertEquals(BrowserUtils.getText(page.joinUsTxt), "Join Us");
-    }
-
-
-
-    @Then("Verify {string} button above the main content of the home page")
-    public void verifyButtonAboveTheMainContentOfTheHomePage(String btn)
-    {
-        BrowserUtils.click(page.joinNowBtn);
-    }
-    @And("Verify button should take the user to {string} page")
-    public void verifyButtonShouldTakeTheUserToPage(String joinUsTxt) throws InterruptedException {
-        BrowserUtils.waitForElementVisibility(page.joinUsTxt);
-        Thread.sleep(2000);
         BrowserUtils.assertEquals(BrowserUtils.getText(page.joinUsTxt), "Join Us");
     }
 
@@ -165,8 +146,8 @@ public class Home_steps implements CommonPage {
     // TODO @ASY-11
 
 
-
     // TODO @ASY-12
 
 
 }
+
