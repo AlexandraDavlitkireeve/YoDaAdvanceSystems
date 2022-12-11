@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import pages.CommonPage;
 import pages.HomePage;
 import utils.BrowserUtils;
+
 import java.util.List;
 
 public class Home_steps implements CommonPage {
@@ -19,26 +20,26 @@ public class Home_steps implements CommonPage {
     public void navigate_to_home_page() {
         BrowserUtils.getDriver();
     }
+
     HomePage page;
-    public Home_steps()
-    {
+
+    public Home_steps() {
         this.page = new HomePage();
     }
 
     // TODO @ASY-3 @smoke
     @Then("verify 10090 Main Street is displayed")
-    public void verify_10090_Main_Street_is_displayed()
-    {
+    public void verify_10090_Main_Street_is_displayed() {
         BrowserUtils.assertEquals(BrowserUtils.getText(page.streetAddress), "10090 Main Street");
     }
+
     @And("Verify Fairfax, VA, USA is displayed")
-    public void Verify_Fairfax_VA_USA_is_displayed()
-    {
+    public void Verify_Fairfax_VA_USA_is_displayed() {
         BrowserUtils.assertEquals(BrowserUtils.getText(page.townAndState), "Fairfax, VA, USA");
     }
+
     @And("Verify Phone: {string} is displayed")
-    public void verifyPhoneIsDisplayed(String phone)
-    {
+    public void verifyPhoneIsDisplayed(String phone) {
         BrowserUtils.assertEquals(BrowserUtils.getText(page.phoneNumber), "+1 703-831-3217");
     }
 
@@ -83,6 +84,7 @@ public class Home_steps implements CommonPage {
             System.out.println(page.activeMsg.getText());
         }
     }
+
     @Then("Verify  {string} buttons are displayed")
     public void verifyButtonsAreDisplayed(String mediaBtn) {
 
@@ -114,17 +116,13 @@ public class Home_steps implements CommonPage {
     // TODO @ASY-9
 
 
-
-
-
-
     // TODO @ASY-10
 
     @Then("Verify {string} button above the main content of the home page")
-    public void verifyButtonAboveTheMainContentOfTheHomePage(String btn)
-    {
+    public void verifyButtonAboveTheMainContentOfTheHomePage(String btn) {
         BrowserUtils.click(page.joinNowBtn);
     }
+
     @And("Verify button should take the user to {string} page")
     public void verifyButtonShouldTakeTheUserToPage(String joinUsTxt) throws InterruptedException {
         BrowserUtils.waitForElementVisibility(page.joinUsTxt);
@@ -133,7 +131,10 @@ public class Home_steps implements CommonPage {
     }
 
 
-
+    @Then("Verify Company  names are  display in one row")
+    public void verifyCompanyNamesAreDisplayInOneRow() {
+        BrowserUtils.isDisplayed(page.listOfCompany);
+    }
 
 
     // TODO @ASY-11

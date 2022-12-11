@@ -76,4 +76,12 @@ Feature: Home Page Test
     Then Verify "Join Now" button above the main content of the home page
     And Verify button should take the user to "Join Us" page
 
+  @ASY-13 @smoke
+    Scenario: List of companies
+    Then Verify Company  names are  display in one row
+
+
+
+
+
 
