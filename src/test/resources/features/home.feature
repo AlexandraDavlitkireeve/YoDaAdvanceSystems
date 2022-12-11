@@ -72,7 +72,8 @@ Feature: Home Page Test
 
   @ASY-13 @smoke
   Scenario: List of companies
-    Then Verify Company  names are  display in one ro
+    Then Verify Company  names are  display in one row
+
 
   @ASY-16 @smoke
     Scenario Outline: Test footer social media links are displayed
