@@ -1,5 +1,6 @@
 Feature: Home Page Test
 
+  @smoke @regression
   Background: Home page
     Given Navigate to Home page
 
