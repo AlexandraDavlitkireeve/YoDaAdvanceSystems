@@ -4,6 +4,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import pages.CommonPage;
 import pages.HomePage;
@@ -107,16 +108,21 @@ public class Home_steps implements CommonPage {
         }
     }
 
-    @Then("Verify main navigation bar")
-    public void verifyMainNavigationBar() {
-    }
-
+//    @Then("Verify main navigation bar")
+//    public void verifyMainNavigationBar() {
+//    }
+//
     @And("Verify secondary Navigation bar is visible after scroll")
-    public void verifyButtonBarIsVisibleAfterScroll() {
+    public void verifyButtonBarIsVisibleAfterScroll() throws InterruptedException {
+        JavascriptExecutor js = (JavascriptExecutor) BrowserUtils.getDriver();
+        js.executeScript("window.scrollBy(0, 1000)"); //Scroll vertically down by 1000 pixels
+        BrowserUtils.isDisplayed(page.secondBar);
     }
 
     @And("Verify button {string} take the user to corresponding page when click")
-    public void verifyButtonTakeTheUserToCorrespondingPageWhenClick(String arg0) {
+    public void verifyButtonTakeTheUserToCorrespondingPageWhenClick(String bar) throws InterruptedException {
+        BrowserUtils.click(page.navBar);
+        //Thread.sleep(7000);
     }
 
     @Then("Verify {string} button above the main content of the home page")
