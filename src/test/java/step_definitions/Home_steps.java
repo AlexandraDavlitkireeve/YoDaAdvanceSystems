@@ -142,7 +142,6 @@ public class Home_steps implements CommonPage {
         BrowserUtils.assertEquals(BrowserUtils.getText(page.joinUsTxt), "Join Us");
     }
 
-
     // TODO @ASY-11
 
 

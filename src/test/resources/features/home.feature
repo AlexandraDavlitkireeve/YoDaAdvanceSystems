@@ -37,6 +37,36 @@ Feature: Home Page Test
       | French             |
 
 
+  @ASY-8 @smoke
+  Scenario Outline: Main social media section
+    Then Verify button "<nav button>" is clickable
+    Examples:
+      | nav button |
+      | Facebook   |
+      | Twitter    |
+      | Google     |
+      | LinkedIn   |
+
+  @ASY-9 @smoke
+  Scenario Outline: Page navigation bar
+    Then Verify main navigation bar
+    And Verify secondary Navigation bar is visible after scroll
+    And Verify button "<nav button>" take the user to corresponding page when click
+    Examples:
+      | nav button |
+      | Home       |
+      | About Us   |
+      | Services   |
+      | Clients    |
+      | Join Us    |
+      | Contact Us |
+
+  @ASY-10 @smoke
+  Scenario: Main call to cation button
+    Then Verify "Join Now" button above the main content of the home page
+    And Verify button should take the user to "Join Us" page
+
+
   @ASY-12
   Scenario: Testimonials
     Then Verify header "Words from our Clients" is Displayed
@@ -53,37 +83,9 @@ Feature: Home Page Test
       | linkedin     |
 
 
-  @ASY-8 @smoke
-  Scenario Outline: Main social media section
-    Then Verify button "<nav button>" is clickable
-    Examples:
-      | nav button |
-      | Facebook   |
-      | Twitter    |
-      | Google     |
-      | LinkedIn   |
 
 
 
 
-  @ASY-10 @smoke
-  Scenario: Main call to cation button
-    Then Verify "Join Now" button above the main content of the home page
-    And Verify button should take the user to "Join Us" page
 
-
-
-    @ASY-9 @smoke
-  Scenario Outline: Page navigation bar
-    Then Verify main navigation bar
-    And Verify secondary Navigation bar is visible after scroll
-    And Verify button "<nav button>" take the user to corresponding page when click
-    Examples:
-      | nav button |
-      | Home       |
-      | About Us   |
-      | Services   |
-      | Clients    |
-      | Join Us    |
-      | Contact Us |
 
