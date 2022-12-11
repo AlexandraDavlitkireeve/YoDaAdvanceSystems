@@ -48,14 +48,14 @@ Feature: Home Page Test
     Then Verify testimonials, person's name and city are displayed
 
   @ASY-16 @smoke
-    Scenario Outline: Test footer social media links are displayed
+  Scenario Outline: Test footer social media links are displayed
     Then Verify  "<social media>" buttons are displayed
     Examples:
-    |social media|
-    |facebook    |
-    |twitter     |
-    |skype       |
-    |linkedin    |
+      | social media |
+      | facebook     |
+      | twitter      |
+      | skype        |
+      | linkedin     |
 
   @ASY-8 @smoke
   Scenario Outline: Main social media section
@@ -72,7 +72,7 @@ Feature: Home Page Test
 
 
   @ASY-10 @smoke
-   Scenario: Main call to cation button
+  Scenario: Main call to cation button
     Then Verify "Join Now" button above the main content of the home page
     And Verify button should take the user to "Join Us" page
 
