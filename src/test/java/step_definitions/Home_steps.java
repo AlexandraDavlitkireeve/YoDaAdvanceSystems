@@ -4,7 +4,11 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
+
+import org.openqa.selenium.WebDriver;
+
 import org.openqa.selenium.WebElement;
+
 import pages.CommonPage;
 import pages.HomePage;
 import utils.BrowserUtils;
@@ -26,6 +30,7 @@ public class Home_steps implements CommonPage {
     public Home_steps() {
         this.page = new HomePage();
     }
+
 
     // TODO @ASY-3 @smoke
     @Then("verify 10090 Main Street is displayed")
@@ -102,8 +107,8 @@ public class Home_steps implements CommonPage {
             case "twitter":
                 BrowserUtils.click(page.twitterBtn);
                 break;
-            case "google":
-                BrowserUtils.click(page.googleBtn);
+            case "instagram":
+                BrowserUtils.click(page.instagramBtn);
                 break;
             case "linkedin":
                 BrowserUtils.click(page.linkedInBtn);
@@ -113,11 +118,24 @@ public class Home_steps implements CommonPage {
         }
     }
 
+
     // TODO @ASY-9
+
+    @Then("Verify main navigation bar")
+    public void verifyMainNavigationBar() {
+    }
+
+    @And("Verify secondary Navigation bar is visible after scroll")
+    public void verifyButtonBarIsVisibleAfterScroll() {
+    }
+
+    @And("Verify button {string} take the user to corresponding page when click")
+    public void verifyButtonTakeTheUserToCorrespondingPageWhenClick(String arg0) {
+    }
+
 
 
     // TODO @ASY-10
-
     @Then("Verify {string} button above the main content of the home page")
     public void verifyButtonAboveTheMainContentOfTheHomePage(String btn) {
         BrowserUtils.click(page.joinNowBtn);
@@ -126,9 +144,9 @@ public class Home_steps implements CommonPage {
     @And("Verify button should take the user to {string} page")
     public void verifyButtonShouldTakeTheUserToPage(String joinUsTxt) throws InterruptedException {
         BrowserUtils.waitForElementVisibility(page.joinUsTxt);
-        Thread.sleep(2000);
         BrowserUtils.assertEquals(BrowserUtils.getText(page.joinUsTxt), "Join Us");
     }
+
 
 
     @Then("Verify Company  names are  display in one row")
@@ -137,7 +155,11 @@ public class Home_steps implements CommonPage {
     }
 
 
+
     // TODO @ASY-11
+
+
+    // TODO @ASY-12
 
 
 }
