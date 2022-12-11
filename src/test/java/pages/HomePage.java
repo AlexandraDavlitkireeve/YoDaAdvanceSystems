@@ -5,6 +5,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utils.BrowserUtils;
 
+import java.util.List;
+
 public class HomePage {
     public HomePage() {
         PageFactory.initElements(BrowserUtils.getDriver(), this);
@@ -67,5 +69,11 @@ public class HomePage {
     // TODO @ASY-11
 
 
+    // @ASY-14
+    @FindBy(xpath = "//ul[@class='list-info']//li")
+    public List<WebElement> footerInfo;
 
+
+    @FindBy(xpath = "//ul[@class='list-info']")
+    public WebElement footerInfo1;
 }

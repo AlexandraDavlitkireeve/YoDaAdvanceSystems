@@ -59,3 +59,12 @@ Feature: Home Page Test
     Then Verify "Join Now" button above the main content of the home page
     And Verify button should take the user to "Join Us" page
 
+  @ASY-14 @smoke
+  Scenario Outline:: Footer contact info
+  Then Then Verify button "<contact info>" is displayed
+    Examples:
+      | contact info                          |
+      | Address: 10090 Main St, Fairfax, VA   |
+      | Phone: +1 703-831-3217                |
+      | Email: info@advancesystems.us         |
+      | Mon to Sat: 9.00 am to 5:00 pm        |
