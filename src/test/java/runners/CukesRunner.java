@@ -20,8 +20,6 @@ import org.junit.runner.RunWith;
         ,tags = "@ASY-8"
 
 
-
-
 )
         public class CukesRunner {
 

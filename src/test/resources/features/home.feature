@@ -42,10 +42,10 @@ Feature: Home Page Test
     Then Verify button "<nav button>" is clickable
     Examples:
       | nav button |
-      | Facebook   |
-      | Twitter    |
-      | Instagram  |
-      | LinkedIn   |
+      | facebook   |
+      | twitter    |
+      | instagram  |
+      | linkedin   |
 
   @ASY-9 @smoke @regression
   Scenario Outline: Page navigation bar
@@ -76,8 +76,10 @@ Feature: Home Page Test
   Scenario: List of companies
     Then Verify Company  names are  display in one row
 
-  @ASY-14 @smoke @regression
-  Scenario Outline:: Footer contact info
+
+  @ASY-14 @smoke
+  Scenario Outline: Footer contact info
+
     Then Verify "<contact info>" is displayed
     Examples:
       | contact info                          |
