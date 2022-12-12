@@ -11,6 +11,7 @@ public class HomePage {
     public HomePage() {
         PageFactory.initElements(BrowserUtils.getDriver(), this);
     }
+
     @FindBy(xpath = "//i[contains(text(), '10090 Main Street')]")
     public WebElement streetAddress;
 
@@ -20,12 +21,8 @@ public class HomePage {
     @FindBy(xpath = "//strong[contains(text(), '+1 703-831-3217')]")
     public WebElement phoneNumber;
 
-
-    @FindBy (xpath = "//div[@class= 'top-right flex-box-three']")
-    public WebElement navBtn;
-
     @FindBy(xpath = "//h2[@class='white-heading']")
-    public WebElement headerParallax ;
+    public WebElement headerParallax;
 
     @FindBy(xpath = "//a[text()='Read More']")
     public WebElement moreButton;
@@ -42,25 +39,8 @@ public class HomePage {
     @FindBy(xpath = "//div[@class='testimonial-outer']")
     public WebElement activeMsg;
 
-    @FindBy(xpath = "//div[@class='thumb-item']")
-    public WebElement eachPerson;
-
-    @FindBy(xpath = "//div[@class='designation']")
-    public WebElement city;
-
-    @FindBy(xpath = "//ul[@class='social-icon-six']/li")
-    public WebElement mediaBtn;
-
-    @FindBy(xpath = "//div[@class='owl-next']")
-    public WebElement nextBtn;
     @FindBy(xpath = "//div[@class='header-lower']")
     public WebElement mainBar;
-
-    @FindBy(xpath = "//div[@class='sticky-header']")
-    public WebElement secondBar;
-
-    @FindBy(xpath = "//div[@class='right-col pull-right']//ul[@class='navigation clearfix']//li")
-    public WebElement navBar;
 
     @FindBy(xpath = "//a[text()='Join Now']")
     public WebElement joinNowBtn;
@@ -68,7 +48,7 @@ public class HomePage {
     @FindBy(xpath = "//div/h1[text()='Join Us']")
     public WebElement joinUsTxt;
 
-    @FindBy(xpath = "//div[contains(@class, 'six-item-carousel')]" )
+    @FindBy(xpath = "//div[contains(@class, 'six-item-carousel')]")
     public WebElement listOfCompany;
 
     @FindBy(xpath = "//ul[@class='list-info']")
@@ -76,7 +56,6 @@ public class HomePage {
 
     @FindBy(xpath = "//span[@class='icon']")
     public WebElement languageSelection;
-
 
 
 }
