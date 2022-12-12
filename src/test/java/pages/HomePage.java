@@ -94,4 +94,11 @@ public class HomePage {
 
     @FindBy(xpath = "//ul[@class='list-info']")
     public WebElement footerInfo1;
+
+//    @FindBy(xpath = "//div[contains(@class, 'col-md-6 col-sm-12')]//li")
+//    public WebElement footLink;
+
+    @FindBy(xpath = "//div[contains(@class, 'col-md-6 col-sm-12')]//li")
+    public List<WebElement> footLink;
+
 }

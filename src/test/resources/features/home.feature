@@ -1,6 +1,5 @@
 Feature: Home Page Test
 
-  @smoke @regression
   Background: Home page
     Given Navigate to Home page
 
@@ -83,11 +82,28 @@ Feature: Home Page Test
 
     Then Verify "<contact info>" is displayed
     Examples:
-      | contact info                          |
-      | Address: 10090 Main St, Fairfax, VA   |
-      | Phone: +1 703-831-3217                |
-      | Email: info@advancesystems.us         |
-      | Mon to Sat: 9.00 am to 5:00 pm        |
+      | contact info                        |
+      | Address: 10090 Main St, Fairfax, VA |
+      | Phone: +1 703-831-3217              |
+      | Email: info@advancesystems.us       |
+      | Mon to Sat: 9.00 am to 5:00 pm      |
+
+  @ASY-15 @smoke @regression
+  Scenario Outline: Footer quick links
+    And Verify links "<footer links>" are displayed
+    Examples:
+      | footer links   |
+      | Home           |
+      | About Us       |
+      | Services       |
+      | Clients        |
+      | Join Us        |
+      | Contact Us     |
+      | Join Us        |
+      | FAQs           |
+      | Job Career     |
+      | Meet Our Team  |
+      | Privacy Policy |
 
   @ASY-16 @smoke @regression
   Scenario Outline: Test footer social media links are displayed
