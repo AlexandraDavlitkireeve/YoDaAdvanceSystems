@@ -113,4 +113,3 @@ Feature: Home Page Test
       | twitter      |
       | skype        |
       | linkedin     |
-
