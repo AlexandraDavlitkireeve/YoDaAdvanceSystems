@@ -17,12 +17,9 @@ import org.junit.runner.RunWith;
         stepNotifications = true,
         dryRun = false
 
-        ,tags = "@ASY-13"
-
-
+        , tags = "@ASY-7"
 
 
 )
-        public class CukesRunner {
-
+public class CukesRunner {
 }
