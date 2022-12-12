@@ -77,10 +77,5 @@ public class HomePage {
     @FindBy(xpath = "//ul[@class='list-info']")
     public WebElement footerInfo1;
 
-//    @FindBy(xpath = "//div[contains(@class, 'col-md-6 col-sm-12')]//li")
-//    public WebElement footLink;
-
-    @FindBy(xpath = "//div[@class='footer-link footer-column-border col-lg-4 col-md-6 col-sm-6 col-xs-12']")
-    public List<WebElement> footLink;
 
 }
