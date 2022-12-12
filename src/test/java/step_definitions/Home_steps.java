@@ -166,5 +166,14 @@ public class Home_steps implements CommonPage {
         BrowserUtils.click(page.languageSelection);
         BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS,language))));
     }
+
+    @Then("Verify items are displayed as a header and description under it")
+    public void verifyAreDisplayedAsAHeaderAndDescriptionUnderIt() {
+        List<WebElement> section = page.item;
+        for (WebElement each : section) {
+            BrowserUtils.isDisplayed(each);
+            System.out.println(each.getText());
+        }
+    }
 }
 
