@@ -158,7 +158,7 @@ public class Home_steps implements CommonPage {
 
     @And("Verify links {string} are opening corrisponding page")
     public void verifyLinksAreOpeningCorrispondingPage(String footerLink) {
-        BrowserUtils.assertTrue(BrowserUtils.getDriver().getTitle().toLowerCase().contains(footerLink));
+        BrowserUtils.assertTrue(BrowserUtils.getDriver().getTitle().contains(footerLink));
     }
 }
 
