@@ -26,15 +26,13 @@ Feature: Home Page Test
   @ASY-7 @smoke @regression
   Scenario Outline: General navigation bar
     Then Verify button "<nav button>" is displayed
+    Then Verify "<language>" selection
+
     Examples:
-      | nav button         |
-      | Get Support        |
-      | Job Career         |
-      | Feedback           |
-      | Language selection |
-      | English            |
-      | Spanish            |
-      | French             |
+      | language | nav button  |
+      | English  | Get Support |
+      | Spanish  | Job Career  |
+      | French   | Feedback    |
 
 
   @ASY-8 @smoke @regression
