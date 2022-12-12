@@ -12,4 +12,6 @@ public interface CommonPage
     String XPATH_TEMPLATE_TEXT2 = "//div[@class='menu-bg']//a[contains(@href,'%s')]";
     String XPATH_TEMPLATE_TEXT2_CONTAINS = "(//a[contains(text(), '%s')])[2]";
 
+    String XPATH_TEMPLATE_FOOTER_LINKS = "//div[contains(@class,'footer-link')]//div[@class='inner']//a[contains(text(),'%s')]";
+
 }

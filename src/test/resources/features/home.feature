@@ -91,6 +91,8 @@ Feature: Home Page Test
   @ASY-15 @smoke @regression
   Scenario Outline: Footer quick links
     And Verify links "<footer links>" are displayed
+    And Verify links "<footer links>" are clickable
+    And Verify links "<footer links>" are opening corrisponding page
     Examples:
       | footer links   |
       | Home           |
@@ -99,11 +101,8 @@ Feature: Home Page Test
       | Clients        |
       | Join Us        |
       | Contact Us     |
-      | Join Us        |
-      | FAQs           |
-      | Job Career     |
-      | Meet Our Team  |
-      | Privacy Policy |
+
+
 
   @ASY-16 @smoke @regression
   Scenario Outline: Test footer social media links are displayed
