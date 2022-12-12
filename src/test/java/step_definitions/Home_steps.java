@@ -142,5 +142,15 @@ public class Home_steps implements CommonPage {
         BrowserUtils.assertTrue(page.footerInfo1.getText().contains(info));
 
     }
+
+    @And("Verify links {string} are displayed")
+    public void verifyLinksAreDisplayed(String footerLink) {
+        //BrowserUtils.assertTrue(page.footLink.getText().contains(footerLink));
+        List<WebElement> links = page.footLink;
+        for (WebElement each : links) {
+            BrowserUtils.isDisplayed(each);
+            //BrowserUtils.assertEquals(each.getText(), footerLink);
+        }
+    }
 }
 
