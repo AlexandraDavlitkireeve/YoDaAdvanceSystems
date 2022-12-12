@@ -145,12 +145,20 @@ public class Home_steps implements CommonPage {
 
     @And("Verify links {string} are displayed")
     public void verifyLinksAreDisplayed(String footerLink) {
-        //BrowserUtils.assertTrue(page.footLink.getText().contains(footerLink));
-        List<WebElement> links = page.footLink;
-        for (WebElement each : links) {
-            BrowserUtils.isDisplayed(each);
-            //BrowserUtils.assertEquals(each.getText(), footerLink);
+        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_FOOTER_LINKS,footerLink))));
+//
         }
+
+
+    @And("Verify links {string} are clickable")
+    public void verifyLinksAreClickable(String footerLink) {
+        BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_FOOTER_LINKS,footerLink))));
+    }
+
+    @And("Verify links {string} are opening corrisponding page")
+    public void verifyLinksAreOpeningCorrispondingPage(String footerLink) {
+        BrowserUtils.assertTrue(BrowserUtils.getDriver().getTitle().toLowerCase().contains(footerLink));
     }
 }
+
 
