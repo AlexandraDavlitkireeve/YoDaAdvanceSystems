@@ -24,9 +24,6 @@ public class HomePage {
     @FindBy (xpath = "//div[@class= 'top-right flex-box-three']")
     public WebElement navBtn;
 
-//    @FindBy (xpath = "//*[contains(text(), 'Advance Systems - Home')]" )
-//    public WebElement titleHomepage;
-
     @FindBy(xpath = "//h2[@class='white-heading']")
     public WebElement headerParallax ;
 
@@ -77,8 +74,9 @@ public class HomePage {
     @FindBy(xpath = "//ul[@class='list-info']")
     public WebElement footerInfo1;
 
+    @FindBy(xpath = "//span[@class='icon']")
+    public WebElement languageSelection;
 
-    @FindBy(xpath = "//div[@class='footer-link footer-column-border col-lg-4 col-md-6 col-sm-6 col-xs-12']")
-    public List<WebElement> footLink;
+
 
 }

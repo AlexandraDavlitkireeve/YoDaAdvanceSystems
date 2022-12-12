@@ -42,8 +42,8 @@ public class Home_steps implements CommonPage {
 
     @Then("Verify button {string} is displayed")
     public void verifyButtonIsDisplayed(String button) {
-        BrowserUtils.assertEquals(page.navBtn.getText(), button);
-        //BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, button))));
+
+        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, button))));
     }
 
     @Then("Verify Title of the homepage should be {string}")
@@ -159,6 +159,12 @@ public class Home_steps implements CommonPage {
     @And("Verify links {string} are opening corrisponding page")
     public void verifyLinksAreOpeningCorrispondingPage(String footerLink) {
         BrowserUtils.assertTrue(BrowserUtils.getDriver().getTitle().contains(footerLink));
+    }
+
+    @Then("Verify {string} selection")
+    public void verifySelection(String language) {
+        BrowserUtils.click(page.languageSelection);
+        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS,language))));
     }
 }
 
