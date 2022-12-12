@@ -74,6 +74,9 @@ public class HomePage {
     @FindBy(xpath = "//ul[@class='list-info']")
     public WebElement footerInfo1;
 
+    @FindBy(xpath = "//span[@class='icon']")
+    public WebElement languageSelection;
+
 
 
 }
