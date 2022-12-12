@@ -3,7 +3,7 @@ Feature: Home Page Test
   Background: Home page
     Given Navigate to Home page
 
-  @ASY-1 @regression
+  @ASY-1  @regression
   Scenario: HomePage
 
 
@@ -13,7 +13,7 @@ Feature: Home Page Test
     And Verify Fairfax, VA, USA is displayed
     And Verify Phone: "703-831-3217" is displayed
 
-  @ASY-4@regression
+  @ASY-4 @smoke @regression
   Scenario: Parallax section
     Then header is displayed
     And verify description is displayed
@@ -26,13 +26,15 @@ Feature: Home Page Test
   @ASY-7 @smoke @regression
   Scenario Outline: General navigation bar
     Then Verify button "<nav button>" is displayed
-    Then Verify "<language>" selection
-
     Examples:
-      | language | nav button  |
-      | English  | Get Support |
-      | Spanish  | Job Career  |
-      | French   | Feedback    |
+      | nav button         |
+      | Get Support        |
+      | Job Career         |
+      | Feedback           |
+      | Language selection |
+      | English            |
+      | Spanish            |
+      | French             |
 
 
   @ASY-8 @smoke @regression
@@ -65,7 +67,7 @@ Feature: Home Page Test
     And Verify button should take the user to "Join Us" page
 
 
-  @ASY-12 @regression
+  @ASY-12 @smoke @regression
   Scenario: Testimonials
     Then Verify header "Words from our Clients" is Displayed
     Then Verify testimonials, person's name and city are displayed
@@ -92,13 +94,14 @@ Feature: Home Page Test
     And Verify links "<footer links>" are clickable
     And Verify links "<footer links>" are opening corrisponding page
     Examples:
-      | footer links |
-      | Home         |
-      | About Us     |
-      | Services     |
-      | Clients      |
-      | Join Us      |
-      | Contact Us   |
+      | footer links   |
+      | Home           |
+      | About Us       |
+      | Services       |
+      | Clients        |
+      | Join Us        |
+      | Contact Us     |
+
 
 
   @ASY-16 @smoke @regression
