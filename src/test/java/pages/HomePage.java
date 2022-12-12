@@ -24,9 +24,6 @@ public class HomePage {
     @FindBy (xpath = "//div[@class= 'top-right flex-box-three']")
     public WebElement navBtn;
 
-//    @FindBy (xpath = "//*[contains(text(), 'Advance Systems - Home')]" )
-//    public WebElement titleHomepage;
-
     @FindBy(xpath = "//h2[@class='white-heading']")
     public WebElement headerParallax ;
 
