@@ -148,8 +148,8 @@ public class Home_steps implements CommonPage {
     public void verifyLinksAreDisplayed(String footerLink) {
         BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_FOOTER_LINKS,footerLink))));
 //
-    }
 
+        }
 
     @And("Verify links {string} are clickable")
     public void verifyLinksAreClickable(String footerLink) {
@@ -161,3 +161,4 @@ public class Home_steps implements CommonPage {
         BrowserUtils.assertTrue(BrowserUtils.getDriver().getTitle().contains(footerLink));
     }
 }
+
