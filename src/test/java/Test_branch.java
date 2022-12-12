@@ -14,5 +14,7 @@ public class Test_branch {
         System.out.println("test");
         System.out.println("Practice");
         System.out.println("verification");
+        System.out.println("git practice");
+        System.out.println("git practice new branch");
     }
 }

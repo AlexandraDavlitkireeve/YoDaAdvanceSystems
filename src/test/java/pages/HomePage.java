@@ -56,46 +56,28 @@ public class HomePage {
 
     @FindBy(xpath = "//div[@class='owl-next']")
     public WebElement nextBtn;
-
-    // TODO @ASY-8
-    @FindBy(xpath = "//a[@href='https://facebook.com']")
-    public WebElement faceBookBtn;
-
-    @FindBy(xpath = "//a[@href='https://twitter.com']")
-    public WebElement twitterBtn;
-
-    @FindBy(xpath = "//a[@href='https://instagram.com']")
-    public WebElement instagramBtn;
-
-    @FindBy(xpath = "//a[@href='https://linkedin.com']")
-    public WebElement linkedInBtn;
-
-    // TODO @ASY-9
-    @FindBy(xpath = "")
+    @FindBy(xpath = "//div[@class='header-lower']")
     public WebElement mainBar;
 
+    @FindBy(xpath = "//div[@class='sticky-header']")
+    public WebElement secondBar;
 
+    @FindBy(xpath = "//div[@class='right-col pull-right']//ul[@class='navigation clearfix']//li")
+    public WebElement navBar;
 
-
-    // TODO @ASY-10
     @FindBy(xpath = "//a[text()='Join Now']")
     public WebElement joinNowBtn;
-
 
     @FindBy(xpath = "//div/h1[text()='Join Us']")
     public WebElement joinUsTxt;
 
-
-    // TODO @ASY-11
-
-
-    // @ASY-14
-    @FindBy(xpath = "//ul[@class='list-info']//li")
-    public List<WebElement> footerInfo;
-
-
+    @FindBy(xpath = "//div[contains(@class, 'six-item-carousel')]" )
+    public WebElement listOfCompany;
 
     @FindBy(xpath = "//ul[@class='list-info']")
     public WebElement footerInfo1;
+
+    @FindBy(xpath = "//div[@class='footer-link footer-column-border col-lg-4 col-md-6 col-sm-6 col-xs-12']")
+    public List<WebElement> footLink;
 
 }
