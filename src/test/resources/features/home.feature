@@ -3,7 +3,7 @@ Feature: Home Page Test
   Background: Home page
     Given Navigate to Home page
 
-  @ASY-1 @regression
+  @ASY-1  @regression
   Scenario: HomePage
 
 
@@ -16,7 +16,7 @@ Feature: Home Page Test
       | Fairfax, VA, USA  |
       | +1 703-831-3217   |
 
-  @ASY-4@regression
+  @ASY-4 @smoke @regression
   Scenario: Parallax section
     Then header is displayed
     And verify description is displayed
@@ -67,8 +67,12 @@ Feature: Home Page Test
     Then Verify "Join Now" button above the main content of the home page
     And Verify button should take the user to "Join Us" page
 
+  @ASY-11 @smoke @regression
+  Scenario: What to expect section
+    Then Verify items are displayed as a header and description under it
 
-  @ASY-12 @regression
+
+  @ASY-12 @smoke @regression
   Scenario: Testimonials
     Then Verify header "Words from our Clients" is Displayed
     Then Verify testimonials, person's name and city are displayed
