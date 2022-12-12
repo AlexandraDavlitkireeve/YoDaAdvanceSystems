@@ -49,17 +49,17 @@ Feature: Home Page Test
 
   @ASY-9 @smoke
   Scenario Outline: Page navigation bar
-    Then Verify main navigation bar
-    And Verify secondary Navigation bar is visible after scroll
-    And Verify button "<nav button>" take the user to corresponding page when click
+    When Verify main navigation bar
+    Then Verify each button click after scroll "<navButton>"
+    Then Verify page navigation bar has correct title "<title>"
     Examples:
-      | nav button |
-      | Home       |
-      | About Us   |
-      | Services   |
-      | Clients    |
-      | Join Us    |
-      | Contact Us |
+      | navButton  | title                        |
+      | Home       | Advance Systems - Home       |
+      | About Us   | Advance Systems - About Us   |
+      | Services   | Advance Systems - Services   |
+      | Clients    | Advance Systems - Clients    |
+      | Join Us    | Advance Systems - Join Us    |
+      | Contact Us | Advance Systems - Contact Us |
 
   @ASY-10 @smoke
   Scenario: Main call to cation button

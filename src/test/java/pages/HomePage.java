@@ -65,24 +65,6 @@ public class HomePage {
     @FindBy(xpath = "//div[@class='right-col pull-right']//ul[@class='navigation clearfix']//li")
     public WebElement navBar;
 
-//    @FindBy(xpath = "(//div[@class='navbar-collapse collapse clearfix']/ul/li)[1]/a")
-//    public WebElement homeBtn;
-//
-//    @FindBy(xpath = "(//div[@class='navbar-collapse collapse clearfix']/ul/li)[2]/a")
-//    public WebElement aboutUsBtn;
-//
-//    @FindBy(xpath = "(//div[@class='navbar-collapse collapse clearfix']/ul/li)[3]/a")
-//    public WebElement servicesBtn;
-//
-//    @FindBy(xpath = "")
-//    public WebElement clientsBtn;
-//
-//    @FindBy(xpath = "")
-//    public WebElement joinUsBtn;
-
-    @FindBy(xpath = "")
-    public WebElement contactUsBtn;
-
     @FindBy(xpath = "//a[text()='Join Now']")
     public WebElement joinNowBtn;
 
