@@ -15,8 +15,8 @@ public class HomePage {
     @FindBy(xpath = "//h2[@class='white-heading']")
     public WebElement firstHeaderParallax;
 
-    @FindBy(xpath = "//a[text()='Read More']")
-    public WebElement moreButton;
+    @FindBy(xpath = "//a[contains(text(), 'Read More')]")
+    public WebElement readMoreBtn;
 
     @FindBy(xpath = "//div[contains(@data-x,'right')]//a[text()='Read More']")
     public WebElement secondMoreButton;
