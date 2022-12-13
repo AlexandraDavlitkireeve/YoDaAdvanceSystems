@@ -56,9 +56,14 @@ public class Home_steps implements CommonPage {
     }
 
     @And("verify read more button is displayed")
-    public void verifyReadMoreButtonIsDisplayed() {
-        BrowserUtils.isDisplayed(page.moreButton);
+    public void verifyReadMoreButtonIsDisplayed()  {
+        BrowserUtils.isDisplayed(page.readMoreBtn);
     }
+
+//    @And("verify header of the page {string}")
+//    public void verifyHeaderOfThePage(String title) {
+//        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
+//    }
 
     @Then("Verify header {string} is Displayed")
     public void verifyHeaderIsDisplayed(String headerTxt) {
@@ -166,5 +171,6 @@ public class Home_steps implements CommonPage {
             System.out.println(each.getText());
         }
     }
+
 }
 
