@@ -63,7 +63,6 @@ Feature: Home Page Test
   Scenario: Main call to cation button
     Then Verify "Join Now" button above the main content of the home page
     And Verify button should take the user to "Join Us" page
-
   @ASY-11 @smoke @regression
   Scenario: What to expect section
     Then Verify items are displayed as a header and description under it
