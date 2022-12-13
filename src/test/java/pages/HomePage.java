@@ -12,6 +12,9 @@ public class HomePage {
         PageFactory.initElements(BrowserUtils.getDriver(), this);
     }
 
+    @FindBy (xpath = "//div[@class= 'top-right flex-box-three']")
+    public WebElement navBtn;
+
     @FindBy(xpath = "//i[contains(text(), '10090 Main Street')]")
     public WebElement streetAddress;
 
