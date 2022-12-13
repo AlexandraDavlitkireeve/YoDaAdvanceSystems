@@ -57,9 +57,14 @@ public class Home_steps implements CommonPage {
     }
 
     @And("verify read more button is displayed")
-    public void verifyReadMoreButtonIsDisplayed() {
-        BrowserUtils.isDisplayed(page.moreButton);
+    public void verifyReadMoreButtonIsDisplayed()  {
+        BrowserUtils.isDisplayed(page.readMoreBtn);
     }
+
+//    @And("verify header of the page {string}")
+//    public void verifyHeaderOfThePage(String title) {
+//        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
+//    }
 
     @Then("Verify header {string} is Displayed")
     public void verifyHeaderIsDisplayed(String headerTxt) {
@@ -120,7 +125,7 @@ public class Home_steps implements CommonPage {
     }
 
     @And("Verify button should take the user to {string} page")
-    public void verifyButtonShouldTakeTheUserToPage(String joinUsTxt) throws InterruptedException {
+    public void verifyButtonShouldTakeTheUserToPage(String joinUsTxt) {
         BrowserUtils.waitForElementVisibility(page.joinUsTxt);
         BrowserUtils.assertEquals(BrowserUtils.getText(page.joinUsTxt), "Join Us");
     }
@@ -174,9 +179,6 @@ public class Home_steps implements CommonPage {
         BrowserUtils.waitForElementVisibility(page.description);
     }
 
-
-
-
     @And("verify second description is displayed")
     public void verifySecondDescriptionIsDisplayed() {
 
@@ -194,5 +196,6 @@ public class Home_steps implements CommonPage {
     public void verifySecondReadMoreButtonIsDisplayed() {
         BrowserUtils.isDisplayed(page.secondMoreButton);
     }
+
 }
 
