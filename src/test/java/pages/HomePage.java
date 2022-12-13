@@ -15,7 +15,8 @@ public class HomePage {
     @FindBy(xpath = "//h2[@class='white-heading']")
     public WebElement headerParallax;
 
-    @FindBy(xpath = "//a[text()='Read More']")
+//    @FindBy(xpath = "//a[text()='Read More']")
+    @FindBy(xpath = "/html/body/div[1]/section[1]/div/div[1]/div/ul/li[2]/div[4]/div/div/div/a")
     public WebElement moreButton;
 
     @FindBy(xpath = "//div[@class='tp-mask-wrap']//div[@class='text'][1]")
