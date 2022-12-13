@@ -8,10 +8,13 @@ Feature: Home Page Test
 
 
   @ASY-3 @smoke @regression
-  Scenario: Contact info on main page
-    Then verify 10090 Main Street is displayed
-    And Verify Fairfax, VA, USA is displayed
-    And Verify Phone: "703-831-3217" is displayed
+  Scenario Outline: Contact info on main page
+    Then Verify "<contact info>" on main page
+    Examples:
+      | contact info      |
+      | 10090 Main Street |
+      | Fairfax, VA, USA  |
+      | +1 703-831-3217   |
 
   @ASY-4 @smoke @regression
   Scenario: Parallax section
