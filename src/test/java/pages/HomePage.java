@@ -24,7 +24,7 @@ public class HomePage {
     @FindBy(xpath = "//h2[text()='Words from our Clients']")
     public WebElement headerTxt;
 
-    @FindBy(xpath = "//div[@class='owl-item']//div[contains(text(), 'These guys')]")
+    @FindBy(xpath = "//div[@class='owl-item']//div[contains(text(), 'Lorem')]")
     public List<WebElement> testMsg;
 
     @FindBy(xpath = "//div[@class='testimonial-outer']")
