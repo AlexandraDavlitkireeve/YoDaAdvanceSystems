@@ -24,19 +24,12 @@ public class Home_steps implements CommonPage {
         this.page = new HomePage();
     }
 
-    @Then("verify 10090 Main Street is displayed")
-    public void verify_10090_Main_Street_is_displayed() {
-        BrowserUtils.assertEquals(BrowserUtils.getText(page.streetAddress), "10090 Main Street");
-    }
+    @Then("Verify {string} on main page")
+    public void verifyOnMainPage(String info)
+    {
+        BrowserUtils.isDisplayed(BrowserUtils.getDriver()
+                .findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, info))));
 
-    @And("Verify Fairfax, VA, USA is displayed")
-    public void Verify_Fairfax_VA_USA_is_displayed() {
-        BrowserUtils.assertEquals(BrowserUtils.getText(page.townAndState), "Fairfax, VA, USA");
-    }
-
-    @And("Verify Phone: {string} is displayed")
-    public void verifyPhoneIsDisplayed(String phone) {
-        BrowserUtils.assertEquals(BrowserUtils.getText(page.phoneNumber), "+1 703-831-3217");
     }
 
     @Then("Verify button {string} is displayed")
