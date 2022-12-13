@@ -21,6 +21,11 @@ Feature: Home Page Test
     Then header is displayed
     And verify description is displayed
     And verify read more button is displayed
+#    And verify header of the page "Advance Systems - Services"
+    And verify second header is displayed
+    And verify second description is displayed
+    And verify second read more button is displayed
+
 
   @ASY-6 @smoke @regression
   Scenario: Title of the home page
@@ -115,5 +120,5 @@ Feature: Home Page Test
       | social media |
       | facebook     |
       | twitter      |
-      | skype        |
+      | instagram    |
       | linkedin     |
