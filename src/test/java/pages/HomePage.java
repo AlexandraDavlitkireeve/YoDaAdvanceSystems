@@ -51,4 +51,13 @@ public class HomePage {
     @FindBy(xpath = "//div[@class='flex-box']//div[@class='inner-box']")
     public List<WebElement> item;
 
+
+    @FindBy(xpath = "//div[@class='owl-item']//div[contains(text(), 'ever since')]")
+    public List<WebElement> testimonials;
+
+    @FindBy(xpath = "//div[@class='owl-item']//div[@class='thumb-content']")
+    public List<WebElement> nameAndCity;
+
+
+
 }
