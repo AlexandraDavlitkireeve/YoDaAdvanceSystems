@@ -3,7 +3,6 @@ package step_definitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -140,7 +139,6 @@ public class Home_steps implements CommonPage {
     @And("Verify links {string} are displayed")
     public void verifyLinksAreDisplayed(String footerLink) {
         BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_FOOTER_LINKS,footerLink))));
-//
 
         }
 
