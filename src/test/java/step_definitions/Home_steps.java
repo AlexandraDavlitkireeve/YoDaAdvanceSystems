@@ -6,6 +6,7 @@ import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Wait;
 import pages.CommonPage;
 import pages.HomePage;
 import utils.BrowserUtils;
@@ -47,7 +48,7 @@ public class Home_steps implements CommonPage {
 
     @Then("header is displayed")
     public void headerIsDisplayed() {
-        BrowserUtils.isDisplayed(page.headerParallax);
+        BrowserUtils.isDisplayed(page.firstHeaderParallax);
     }
 
     @And("verify description is displayed")
@@ -124,7 +125,7 @@ public class Home_steps implements CommonPage {
     }
 
     @And("Verify button should take the user to {string} page")
-    public void verifyButtonShouldTakeTheUserToPage(String joinUsTxt) throws InterruptedException {
+    public void verifyButtonShouldTakeTheUserToPage(String joinUsTxt) {
         BrowserUtils.waitForElementVisibility(page.joinUsTxt);
         BrowserUtils.assertEquals(BrowserUtils.getText(page.joinUsTxt), "Join Us");
     }
@@ -170,6 +171,30 @@ public class Home_steps implements CommonPage {
             BrowserUtils.isDisplayed(each);
             System.out.println(each.getText());
         }
+    }
+
+    @And("verify user waits {int} milliSeconds")
+    public void verifyUserWaitsSeconts(int milliSeconds) throws InterruptedException {
+        Thread.sleep(milliSeconds);
+        BrowserUtils.waitForElementVisibility(page.description);
+    }
+
+    @And("verify second description is displayed")
+    public void verifySecondDescriptionIsDisplayed() {
+
+        BrowserUtils.isDisplayed(page.secondDescription);
+
+    }
+
+    @And("verify second header is displayed")
+    public void verifySecondHeaderIsDisplayed() {
+        BrowserUtils.waitUntil(page.secondHeader);
+        BrowserUtils.isDisplayed(page.secondHeader);
+    }
+
+    @And("verify second read more button is displayed")
+    public void verifySecondReadMoreButtonIsDisplayed() {
+        BrowserUtils.isDisplayed(page.secondMoreButton);
     }
 
 }

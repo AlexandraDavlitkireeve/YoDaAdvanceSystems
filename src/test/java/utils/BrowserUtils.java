@@ -10,6 +10,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
@@ -193,6 +194,16 @@ public class BrowserUtils {
     public static void hoverOver(WebElement element) {
         Actions action = new Actions(driver);
         action.moveToElement(element).perform();
+    }
+
+    public static void waitFor(int seconds){
+        WebDriverWait wait = new WebDriverWait(driver,seconds);
+
+    }
+
+    public static void waitUntil(WebElement element){
+        WebDriverWait wait = new WebDriverWait(driver,15);
+        wait.until(ExpectedConditions.visibilityOf(element));
     }
 }
 
