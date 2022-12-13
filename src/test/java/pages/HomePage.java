@@ -57,5 +57,7 @@ public class HomePage {
     @FindBy(xpath = "//span[@class='icon']")
     public WebElement languageSelection;
 
+    @FindBy(xpath = "//div[@class='flex-box']//div[@class='inner-box']")
+    public List<WebElement> item;
 
 }

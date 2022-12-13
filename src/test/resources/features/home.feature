@@ -64,6 +64,10 @@ Feature: Home Page Test
     Then Verify "Join Now" button above the main content of the home page
     And Verify button should take the user to "Join Us" page
 
+  @ASY-11 @smoke @regression
+  Scenario: What to expect section
+    Then Verify items are displayed as a header and description under it
+
 
   @ASY-12 @smoke @regression
   Scenario: Testimonials
@@ -92,14 +96,13 @@ Feature: Home Page Test
     And Verify links "<footer links>" are clickable
     And Verify links "<footer links>" are opening corrisponding page
     Examples:
-      | footer links   |
-      | Home           |
-      | About Us       |
-      | Services       |
-      | Clients        |
-      | Join Us        |
-      | Contact Us     |
-
+      | footer links |
+      | Home         |
+      | About Us     |
+      | Services     |
+      | Clients      |
+      | Join Us      |
+      | Contact Us   |
 
 
   @ASY-16 @smoke @regression
