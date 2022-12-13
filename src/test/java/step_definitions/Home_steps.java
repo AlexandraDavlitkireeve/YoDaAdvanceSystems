@@ -67,7 +67,11 @@ public class Home_steps implements CommonPage {
 
     @Then("Verify testimonials, person's name and city are displayed")
     public void verifyTestimonialsPersonSNameAndCityAreDisplayed() {
-
+        List<WebElement> testimonials = page.testMsg;
+        for (WebElement each : testimonials) {
+            BrowserUtils.isDisplayed(each);
+            System.out.println(page.activeMsg.getText());
+        }
     }
 
     @Then("Verify  {string} buttons are displayed")
