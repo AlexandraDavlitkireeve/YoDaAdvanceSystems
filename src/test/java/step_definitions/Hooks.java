@@ -3,8 +3,11 @@ package step_definitions;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import utils.BrowserUtils;
 import utils.CucumberLogUtils;
+import utils.Screenshot;
 
 public class Hooks {
 
@@ -17,9 +20,11 @@ public class Hooks {
 
     @After
     public void tearDown(Scenario scenario) {
-    if(scenario.isFailed()) {
-        CucumberLogUtils.logFail("Scenario failed", true);
-    }
+//    if(scenario.isFailed()) {
+//        CucumberLogUtils.logFail("Scenario failed", true);
+//    }
+        CucumberLogUtils.logPass("Scenario failed", true);
+
         BrowserUtils.quitDriver();
     }
 }
