@@ -31,11 +31,11 @@ public class HomePage {
     @FindBy(xpath = "//h2[text()='Words from our Clients']")
     public WebElement headerTxt;
 
-    @FindBy(xpath = "//div[@class='owl-item cloned']//div[@class='testimonial-block-one']")
-    public WebElement blockTxt;
+    @FindBy(xpath = "//div[@class='owl-item']//div[@class='testimonial-block-one']")
+    public List<WebElement> blockTxt;
 
-    @FindBy(xpath = "//div[@class='owl-item cloned']//div[@class='thumb-content']")
-    public WebElement nameAndCity;
+    @FindBy(xpath = "//div[@class='owl-item']//div[@class='thumb-content']")
+    public List<WebElement> nameAndCity;
 
     @FindBy(xpath = "//div[@class='owl-item cloned']//h3")
     public WebElement name;
@@ -48,6 +48,9 @@ public class HomePage {
 
     @FindBy(xpath = "//div[@class='testimonial-outer']")
     public WebElement activeMsg;
+
+    @FindBy(xpath = "//div[@class='client-thumb-outer']//div[@class='owl-item active']")
+    public WebElement activeNameCity;
 
     @FindBy(xpath = "//div[@class='header-lower']")
     public WebElement mainBar;
