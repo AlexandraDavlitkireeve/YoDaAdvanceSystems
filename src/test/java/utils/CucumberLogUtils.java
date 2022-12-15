@@ -8,6 +8,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+import static utils.BrowserUtils.highlightElement;
+
 public class CucumberLogUtils {
     private static Scenario currentScenario;
 

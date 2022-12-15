@@ -81,6 +81,7 @@ Feature: Home Page Test
     Then Verify header "Words from our Clients" is Displayed
     Then Verify testimonials, person's name and city are displayed
 
+
   @ASY-13 @smoke @regression
   Scenario: List of companies
     Then Verify Company  names are  display in one row
@@ -101,7 +102,7 @@ Feature: Home Page Test
   Scenario Outline: Footer quick links
     And Verify links "<footer links>" are displayed
     And Verify links "<footer links>" are clickable
-    And Verify links "<footer links>" are opening corrisponding page
+    And Verify links "<footer links>" are opening corresponding page
     Examples:
       | footer links |
       | Home         |
