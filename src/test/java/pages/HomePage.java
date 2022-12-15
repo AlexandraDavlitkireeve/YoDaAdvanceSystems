@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -29,6 +30,18 @@ public class HomePage {
 
     @FindBy(xpath = "//h2[text()='Words from our Clients']")
     public WebElement headerTxt;
+
+    @FindBy(xpath = "//div[@class='owl-item cloned']//div[@class='testimonial-block-one']")
+    public WebElement blockTxt;
+
+    @FindBy(xpath = "//div[@class='owl-item cloned']//div[@class='thumb-content']")
+    public WebElement nameAndCity;
+
+    @FindBy(xpath = "//div[@class='owl-item cloned']//h3")
+    public WebElement name;
+
+    @FindBy(xpath = "//div[@class='owl-item cloned']//div[@class='designation']")
+    public WebElement city;
 
     @FindBy(xpath = "//div[@class='owl-item']//div[contains(text(), 'Lorem')]")
     public List<WebElement> testMsg;
@@ -60,6 +73,7 @@ public class HomePage {
     @FindBy(xpath = "//div[@class='flex-box']//div[@class='inner-box']")
     public List<WebElement> item;
 
+    //@FindBy(xpath = "")
 
 
 

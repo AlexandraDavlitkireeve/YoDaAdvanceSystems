@@ -84,6 +84,7 @@ public class Home_steps implements CommonPage {
     public void verifyButtonsAreDisplayed(String mediaBtn) {
 
         BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_CONTAINS_CLASS, mediaBtn))));
+       //BrowserUtils.assertEquals(BrowserUtils.isDisplayed(page.));
     }
 
     @Then("Verify button {string} is clickable")
@@ -153,8 +154,8 @@ public class Home_steps implements CommonPage {
         BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_FOOTER_LINKS,footerLink))));
     }
 
-    @And("Verify links {string} are opening corrisponding page")
-    public void verifyLinksAreOpeningCorrispondingPage(String footerLink) {
+    @And("Verify links {string} are opening corresponding page")
+    public void verifyLinksAreOpeningCorrespondingPage(String footerLink) {
         BrowserUtils.assertTrue(BrowserUtils.getDriver().getTitle().contains(footerLink));
     }
 

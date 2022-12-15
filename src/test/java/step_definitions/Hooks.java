@@ -23,7 +23,7 @@ public class Hooks {
 //    if(scenario.isFailed()) {
 //        CucumberLogUtils.logFail("Scenario failed", true);
 //    }
-        CucumberLogUtils.logPass("Scenario failed", true);
+        CucumberLogUtils.logPass("Scenario passed", true);
 
         BrowserUtils.quitDriver();
     }
