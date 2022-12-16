@@ -33,10 +33,10 @@ public class HomePage {
 
     @FindBy(xpath = "//div[@class='owl-item']//div[@class='testimonial-block-one']")
     public List<WebElement> blockTxt;
-
+    //public WebElement blockTxt;
     @FindBy(xpath = "//div[@class='owl-item']//div[@class='thumb-content']")
     public List<WebElement> nameAndCity;
-
+    //public WebElement nameAndCity;
     @FindBy(xpath = "//div[@class='owl-item cloned']//h3")
     public WebElement name;
 
