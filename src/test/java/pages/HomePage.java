@@ -75,3 +75,4 @@ public class HomePage {
 
     @FindBy(xpath = "//div[@class='flex-box']//div[@class='inner-box']")
     public List<WebElement> item;
+}
