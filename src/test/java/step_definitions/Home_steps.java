@@ -6,13 +6,13 @@ import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Wait;
 import pages.CommonPage;
 import pages.HomePage;
 import utils.BrowserUtils;
 
-import java.sql.Driver;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Home_steps implements CommonPage {
 
@@ -75,16 +75,30 @@ public class Home_steps implements CommonPage {
 
     @Then("Verify testimonials, person's name and city are displayed")
     public void verifyTestimonialsPersonSNameAndCityAreDisplayed() {
-        List<WebElement> testimonials = page.testMsg;
-        for (WebElement each : testimonials) {
-            BrowserUtils.isDisplayed(each);
-            System.out.println(page.activeMsg.getText());
+//        List<WebElement> testimonials = page.testMsg;
+//        for (WebElement each : testimonials) {
+//            BrowserUtils.isDisplayed(each);
+//            System.out.println(page.activeMsg.getText());
+//        }
+
+        List<WebElement> nameAndCity = page.nameAndCity;
+        List<WebElement> blockTxt = page.blockTxt;
+        Map <WebElement, WebElement> map = new LinkedHashMap <>();
+        for (WebElement each : nameAndCity) {
+            for (WebElement eachTxt : blockTxt) {
+//                BrowserUtils.waitUntil(page.activeNameCity);
+//                BrowserUtils.waitUntil(page.activeMsg);
+                //map.put(nameAndCity.get(each), map.get(eachTxt));
+                BrowserUtils.isDisplayed(each);
+                BrowserUtils.isDisplayed(eachTxt);
+                System.out.println(each.getText());
+                System.out.println(eachTxt.getText());
+            }
         }
     }
 
     @Then("Verify  {string} buttons are displayed")
     public void verifyButtonsAreDisplayed(String mediaBtn) {
-
         BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_CONTAINS_CLASS, mediaBtn))));
     }
 
@@ -155,8 +169,8 @@ public class Home_steps implements CommonPage {
         BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_FOOTER_LINKS,footerLink))));
     }
 
-    @And("Verify links {string} are opening corrisponding page")
-    public void verifyLinksAreOpeningCorrispondingPage(String footerLink) {
+    @And("Verify links {string} are opening corresponding page")
+    public void verifyLinksAreOpeningCorrespondingPage(String footerLink) {
         BrowserUtils.assertTrue(BrowserUtils.getDriver().getTitle().contains(footerLink));
     }
 

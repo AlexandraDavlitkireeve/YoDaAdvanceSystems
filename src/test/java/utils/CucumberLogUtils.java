@@ -8,6 +8,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+import static utils.BrowserUtils.highlightElement;
+
 public class CucumberLogUtils {
     private static Scenario currentScenario;
 
@@ -27,6 +29,8 @@ public class CucumberLogUtils {
     public static void logInfo(String msg, String takeScreenshot){
         currentScenario.log(getLogTime() + "  INFO: " + msg);
         if(takeScreenshot.equalsIgnoreCase("true")){
+            BrowserUtils.waitForPageLoad();
+            BrowserUtils.sleep(2000);
             final byte[] screenshot = ((TakesScreenshot) BrowserUtils.getDriver())
                     .getScreenshotAs(OutputType.BYTES);
             currentScenario.attach(screenshot, "image/png", "screenshot");
