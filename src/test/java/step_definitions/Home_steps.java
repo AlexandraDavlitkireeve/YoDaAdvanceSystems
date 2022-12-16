@@ -6,12 +6,10 @@ import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Wait;
 import pages.CommonPage;
 import pages.HomePage;
 import utils.BrowserUtils;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -88,9 +86,9 @@ public class Home_steps implements CommonPage {
         Map <WebElement, WebElement> map = new LinkedHashMap <>();
         for (WebElement each : nameAndCity) {
             for (WebElement eachTxt : blockTxt) {
-                BrowserUtils.waitUntil(page.activeNameCity);
-                BrowserUtils.waitUntil(page.activeMsg);
-                map.put(map.get(each), map.get(eachTxt));
+//                BrowserUtils.waitUntil(page.activeNameCity);
+//                BrowserUtils.waitUntil(page.activeMsg);
+                //map.put(nameAndCity.get(each), map.get(eachTxt));
                 BrowserUtils.isDisplayed(each);
                 BrowserUtils.isDisplayed(eachTxt);
                 System.out.println(each.getText());
