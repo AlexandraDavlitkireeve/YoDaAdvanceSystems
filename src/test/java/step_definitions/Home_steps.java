@@ -106,8 +106,11 @@ public class Home_steps implements CommonPage {
     public void verify_button_is_clickable(String btn)
     {
         BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT2, btn))));
+        BrowserUtils.waitForPageLoad();
         BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT2, btn))));
+        BrowserUtils.waitForPageLoad();
         BrowserUtils.assertTrue(BrowserUtils.getDriver().getTitle().toLowerCase().contains(btn));
+        BrowserUtils.waitForPageLoad();
 
     }
 
