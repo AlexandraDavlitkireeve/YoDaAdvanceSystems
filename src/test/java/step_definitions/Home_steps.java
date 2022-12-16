@@ -84,15 +84,24 @@ public class Home_steps implements CommonPage {
         List<WebElement> nameAndCity = page.nameAndCity;
         List<WebElement> blockTxt = page.blockTxt;
         Map <WebElement, WebElement> map = new LinkedHashMap <>();
-        for (WebElement each : nameAndCity) {
-            for (WebElement eachTxt : blockTxt) {
+//        for (WebElement each : nameAndCity) {
+//            for (WebElement eachTxt : blockTxt) {
 //                BrowserUtils.waitUntil(page.activeNameCity);
 //                BrowserUtils.waitUntil(page.activeMsg);
                 //map.put(nameAndCity.get(each), map.get(eachTxt));
-                BrowserUtils.isDisplayed(each);
-                BrowserUtils.isDisplayed(eachTxt);
-                System.out.println(each.getText());
-                System.out.println(eachTxt.getText());
+//                BrowserUtils.isDisplayed(each);
+//                BrowserUtils.isDisplayed(eachTxt);
+//                System.out.println(each.getText());
+//                System.out.println(eachTxt.getText());
+//            }
+//        }
+        for (int i = 0; i < nameAndCity.size(); i++) {
+            for (int j = 0; j < blockTxt.size(); i++) {
+                map.put(nameAndCity.get(i), blockTxt.get(j));
+                BrowserUtils.isElementDisplayed(nameAndCity.get(i));
+                BrowserUtils.isElementDisplayed(blockTxt.get(j));
+                System.out.println(nameAndCity.get(i).getText());
+                System.out.println(blockTxt.get(j).getText());
             }
         }
     }
