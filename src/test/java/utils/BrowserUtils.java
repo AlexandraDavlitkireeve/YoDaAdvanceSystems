@@ -14,6 +14,7 @@ import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.concurrent.TimeUnit;
+import java.util.function.Function;
 
 public class BrowserUtils {
     private BrowserUtils() {
@@ -82,21 +83,27 @@ public class BrowserUtils {
             throw new RuntimeException(e);
         }
     }
-
     public static void moveIntoView(WebElement element) {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+    }
+    public static void moveIntoView2(WebElement element) {
+//        int y = element.getLocation().getY()-200;
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+        JavascriptExecutor js = (JavascriptExecutor) BrowserUtils.getDriver();
+        js.executeScript("window.scrollBy(0, -300)");
+//        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, "+y+")");
     }
 
     public static void highlightElement(WebElement element) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
 
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 2; i++) {
             try {
                 if (i % 2 == 0) {
                     js.executeScript("arguments[0].setAttribute('style', arguments[1]);", element, "color: black;" +
                             "border: 3px solid red; background: yellow");
                     //TODO: apply report screenshot here
-                     CucumberLogUtils.logInfo(element.toString(), ConfigReader.readProperty("takeScreenshot"));
+                    CucumberLogUtils.logInfo(element.toString(), ConfigReader.readProperty("takeScreenshot"));
                 } else {
                     sleep(500);
                     js.executeScript("arguments[0].setAttribute('style', arguments[1]);", element, "");
@@ -152,6 +159,8 @@ public class BrowserUtils {
     public static void assertEquals(String actual, String expected) {
         //TODO: apply report -> logInfo("Expected" + expected);
         //TODO: apply report -> logInfo("Actual" + actual);
+        CucumberLogUtils.logInfo("Expected" + expected, "false");
+        CucumberLogUtils.logInfo("Actual" + actual, "false");
         Assert.assertEquals(expected, actual);
 
     }
@@ -175,6 +184,13 @@ public class BrowserUtils {
         Assert.assertTrue(element.isDisplayed());
         return element.isDisplayed();
     }
+   public static boolean isElementDisplayed(WebElement element) {
+       waitForElementVisibility(element);
+       moveIntoView2(element);
+       highlightElement(element);
+       Assert.assertTrue(element.isDisplayed());
+       return element.isDisplayed();
+   }
 
     public static boolean isEnabled(WebElement element) {
         waitForElementClickability(element);
@@ -196,14 +212,27 @@ public class BrowserUtils {
         action.moveToElement(element).perform();
     }
 
-    public static void waitFor(int seconds){
-        WebDriverWait wait = new WebDriverWait(driver,seconds);
+    public static void waitFor(int seconds) {
+        WebDriverWait wait = new WebDriverWait(driver, seconds);
 
     }
 
-    public static void waitUntil(WebElement element){
-        WebDriverWait wait = new WebDriverWait(driver,15);
+    public static void waitUntil(WebElement element) {
+        WebDriverWait wait = new WebDriverWait(driver, 15);
         wait.until(ExpectedConditions.visibilityOf(element));
+    }
+    public static void waitForPageLoad() {
+
+        Wait<WebDriver> wait = new WebDriverWait(BrowserUtils.getDriver(), 30);
+        wait.until(new Function<WebDriver, Boolean>() {
+            public Boolean apply(WebDriver driver) {
+                System.out.println("Current Window State       : "
+                        + String.valueOf(((JavascriptExecutor) driver).executeScript("return document.readyState")));
+                return String
+                        .valueOf(((JavascriptExecutor) driver).executeScript("return document.readyState"))
+                        .equals("complete");
+            }
+        });
     }
 }
 
