@@ -1,6 +1,5 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -36,6 +35,8 @@ public class HomePage {
     //public WebElement blockTxt;
     @FindBy(xpath = "//div[@class='owl-item']//div[@class='thumb-content']")
     public List<WebElement> nameAndCity;
+    @FindBy(xpath = "//div[@class='testimonial-outer']//div[@class='text']")
+    public List<WebElement> newNameAndCity;
     //public WebElement nameAndCity;
     @FindBy(xpath = "//div[@class='owl-item cloned']//h3")
     public WebElement name;
@@ -46,7 +47,7 @@ public class HomePage {
     @FindBy(xpath = "//div[@class='owl-item']//div[contains(text(), 'Lorem')]")
     public List<WebElement> testMsg;
 
-    @FindBy(xpath = "//div[@class='testimonial-outer']")
+    @FindBy(xpath = "//div[@class='owl-item active']//div[@class='inner-box']")
     public WebElement activeMsg;
 
     @FindBy(xpath = "//div[@class='client-thumb-outer']//div[@class='owl-item active']")
@@ -75,4 +76,11 @@ public class HomePage {
 
     @FindBy(xpath = "//div[@class='flex-box']//div[@class='inner-box']")
     public List<WebElement> item;
+
+
+    @FindBy(xpath = "//div[@class='owl-item']")
+    public List<WebElement> allTestimonials;
+
+    @FindBy(xpath = "//div[@class='owl-item cloned']//div[@class='testimonial-block-one']")
+    public List<WebElement> clonedTestimonials;
 }
