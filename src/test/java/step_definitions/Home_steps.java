@@ -168,9 +168,8 @@ public class Home_steps implements CommonPage {
 
     @Then("Verify {string} is displayed")
     public void verifyIsDisplayed(String info) {
-
-        BrowserUtils.assertTrue(page.footerInfo1.getText().contains(info));
-
+        BrowserUtils.isDisplayed(BrowserUtils.getDriver()
+                .findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, info))));
     }
 
     @And("Verify links {string} are displayed")
@@ -227,7 +226,6 @@ public class Home_steps implements CommonPage {
     public void verifySecondReadMoreButtonIsDisplayed() {
         BrowserUtils.isDisplayed(page.secondMoreButton);
     }
-
 
 }
 
