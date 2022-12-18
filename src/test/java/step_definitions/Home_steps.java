@@ -15,6 +15,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+
 public class Home_steps implements CommonPage {
 
     @Given("Navigate to Home page")
@@ -127,7 +128,11 @@ public class Home_steps implements CommonPage {
 
         List<WebElement> nameAndCity = page.nameAndCity;
         List<WebElement> blockTxt = page.blockTxt;
+
 //        Map<WebElement, WebElement> map = new LinkedHashMap<>();
+
+        //       Map<WebElement, WebElement> map = new HashMap<>();
+
 //        for (WebElement each : nameAndCity) {
 //            for (WebElement eachTxt : blockTxt) {
 //                BrowserUtils.waitUntil(page.activeNameCity);
@@ -139,6 +144,24 @@ public class Home_steps implements CommonPage {
 //                System.out.println(eachTxt.getText());
 //            }
 //        }
+//
+//        for (int i = 0; i <= nameAndCity.size() - 1; i++) {
+//            for (int j = 0; j <= blockTxt.size() - 1; i++) {
+
+        //BrowserUtils.waitUntil(page.activeNameCity);
+//                BrowserUtils.isDisplayed(nameAndCity.get(i));
+//                BrowserUtils.isDisplayed(blockTxt.get(j));
+//                if (!(BrowserUtils.isDisplayed(nameAndCity.get(i)))) {
+//                    if (!(BrowserUtils.isEnabled(blockTxt.get(j))))
+//                        System.out.println(page.activeNameCity);
+//                    System.out.println(page.activeMsg.getText());
+//                    map.put(nameAndCity.get(i), blockTxt.get(j));
+//                System.out.println(nameAndCity.get(i).getText());
+//                System.out.println(blockTxt.get(j).getText());
+        //               }
+//            }
+//        }
+
 //        for (int i = 0; i < nameAndCity.size(); i++) {
 //            for (int j = 0; j < blockTxt.size(); i++) {
 //                map.put(nameAndCity.get(i), blockTxt.get(j));
