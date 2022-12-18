@@ -17,7 +17,12 @@ import org.junit.runner.RunWith;
         stepNotifications = true,
         dryRun = false
 
+<<<<<<< HEAD
         ,tags = "@ASY-12"
+=======
+
+        ,tags = "@ASY-27"
+>>>>>>> master
 
 
 
