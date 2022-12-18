@@ -1,20 +1,21 @@
 package step_definitions;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.Assert;
-
 import java.util.HashMap;
 import java.util.Map;
-import static org.apache.http.HttpStatus.*;
+
+import static org.apache.http.HttpStatus.SC_OK;
 
 public class Api_steps {
     private static final String BASE_URL = "https://tla-school-api.herokuapp.com";
     private static final String USERNAME = "user";
     private static final String PASSWORD = "user123";
 
-     Response response;
+    Response response;
 
 
     Map<String, Object> variables;
@@ -28,8 +29,9 @@ public class Api_steps {
     public void userGetsBaseURL() {
         RestAssured.baseURI = BASE_URL;
     }
+
     @When("User send GET request to the endpoint")
-    public void userSendGETRequestToTheEndpoint()  {
+    public void userSendGETRequestToTheEndpoint() {
         String path = "/api/school/programs/devcourse";
         String path2 = "/api/school/programs/sdetcourse";
 //        String requestBody = "{\"_id\":\""+variables.get("_id")+"\",\"name\":\""+variables.get("name")+"\",\"duration\":\""+variables.get("duration")+"\",\"__v\":0}}}}}";

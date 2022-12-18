@@ -3,7 +3,7 @@ Feature: Home Page Test
   Background: Home page
     Given Navigate to Home page
 
-  @ASY-1  @regression
+  @ASY-01  @regression
   Scenario: HomePage
 
 
@@ -16,7 +16,7 @@ Feature: Home Page Test
       | Fairfax, VA, USA  |
       | +1 703-831-3217   |
 
-  @ASY-4 @smoke @regression
+  @ASY-04 @smoke @regression
   Scenario: Parallax section
     Then header is displayed
     And verify description is displayed
@@ -26,11 +26,11 @@ Feature: Home Page Test
     And verify second read more button is displayed
     And verify header of the page "Advance Systems - Services"
 
-  @ASY-6 @smoke @regression
+  @ASY-06 @smoke @regression
   Scenario: Title of the home page
     Then Verify Title of the homepage should be "Advance Systems - Home"
 
-  @ASY-7 @smoke @regression
+  @ASY-07 @smoke @regression
   Scenario Outline: General navigation bar
     Then Verify button "<nav button>" is displayed
     Then Verify "<language>" selection
@@ -42,7 +42,7 @@ Feature: Home Page Test
       | French   | Feedback    |
 
 
-  @ASY-8 @smoke @regression
+  @ASY-08 @smoke @regression
   Scenario Outline: Main social media section
     Then Verify button "<nav button>" is clickable
     Examples:
@@ -52,7 +52,7 @@ Feature: Home Page Test
       | instagram  |
       | linkedin   |
 
-  @ASY-9 @smoke @regression
+  @ASY-09 @smoke @regression
   Scenario Outline: Page navigation bar
     When Verify main navigation bar
     Then Verify each button click after scroll "<navButton>"

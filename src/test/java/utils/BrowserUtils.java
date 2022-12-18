@@ -83,9 +83,27 @@ public class BrowserUtils {
             throw new RuntimeException(e);
         }
     }
+
     public static void moveIntoView(WebElement element) {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+    }
+
+    public static void moveIntoViewBurkhon(WebElement element){
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center', inline: 'nearest'});", element);
+    }
+
+
+
+    public static void moveIntoView2(WebElement element) {
+//        int y = element.getLocation().getY()-200;
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+        JavascriptExecutor js = (JavascriptExecutor) BrowserUtils.getDriver();
+        js.executeScript("window.scrollBy(0, -300)");
+//        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, "+y+")");
+
         //((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center', inline: 'nearest'});", element);
+
     }
 //    public static void moveIntoView2(WebElement element) {
 ////        int y = element.getLocation().getY()-200;
@@ -180,11 +198,23 @@ public class BrowserUtils {
 
     public static boolean isDisplayed(WebElement element) {
         waitForElementVisibility(element);
-        moveIntoView(element);
+        moveIntoViewBurkhon(element);
+       // moveIntoView(element);
         highlightElement(element);
         Assert.assertTrue(element.isDisplayed());
         return element.isDisplayed();
     }
+
+
+    public static boolean isElementDisplayed(WebElement element) {
+        waitForElementVisibility(element);
+        moveIntoView2(element);
+        highlightElement(element);
+        Assert.assertTrue(element.isDisplayed());
+
+        return element.isDisplayed();
+    }
+
 //   public static boolean isElementDisplayed(WebElement element) {
 //       waitForElementVisibility(element);
 //       moveIntoView2(element);
@@ -193,6 +223,7 @@ public class BrowserUtils {
 //       Assert.assertTrue(element.isDisplayed());
 //       return element.isDisplayed();
 //   }
+
 
     public static boolean isEnabled(WebElement element) {
         waitForElementClickability(element);
@@ -223,6 +254,7 @@ public class BrowserUtils {
         WebDriverWait wait = new WebDriverWait(driver, 15);
         wait.until(ExpectedConditions.visibilityOf(element));
     }
+
     public static void waitForPageLoad() {
 
         Wait<WebDriver> wait = new WebDriverWait(BrowserUtils.getDriver(), 30);
@@ -234,8 +266,11 @@ public class BrowserUtils {
                         .valueOf(((JavascriptExecutor) driver).executeScript("return document.readyState"))
                         .equals("complete");
             }
-        });
+        }
+        );
     }
+
+
 }
 
 
