@@ -10,9 +10,7 @@ import pages.CommonPage;
 import pages.HomePage;
 import utils.BrowserUtils;
 
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Home_steps implements CommonPage {
 
@@ -28,8 +26,7 @@ public class Home_steps implements CommonPage {
     }
 
     @Then("Verify {string} on main page")
-    public void verifyOnMainPage(String info)
-    {
+    public void verifyOnMainPage(String info) {
         BrowserUtils.isDisplayed(BrowserUtils.getDriver()
                 .findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT, info))));
 
@@ -59,7 +56,7 @@ public class Home_steps implements CommonPage {
     }
 
     @And("verify read more button is displayed")
-    public void verifyReadMoreButtonIsDisplayed()  {
+    public void verifyReadMoreButtonIsDisplayed() {
         BrowserUtils.isDisplayed(page.readMoreBtn);
     }
 
@@ -83,25 +80,32 @@ public class Home_steps implements CommonPage {
 
         List<WebElement> nameAndCity = page.nameAndCity;
         List<WebElement> blockTxt = page.blockTxt;
-        Map <WebElement, WebElement> map = new LinkedHashMap <>();
+        Map<WebElement, WebElement> map = new HashMap<>();
 //        for (WebElement each : nameAndCity) {
 //            for (WebElement eachTxt : blockTxt) {
 //                BrowserUtils.waitUntil(page.activeNameCity);
 //                BrowserUtils.waitUntil(page.activeMsg);
-                //map.put(nameAndCity.get(each), map.get(eachTxt));
+        //map.put(nameAndCity.get(each), map.get(eachTxt));
 //                BrowserUtils.isDisplayed(each);
 //                BrowserUtils.isDisplayed(eachTxt);
 //                System.out.println(each.getText());
 //                System.out.println(eachTxt.getText());
 //            }
 //        }
-        for (int i = 0; i < nameAndCity.size(); i++) {
-            for (int j = 0; j < blockTxt.size(); i++) {
-                map.put(nameAndCity.get(i), blockTxt.get(j));
-                BrowserUtils.isElementDisplayed(nameAndCity.get(i));
-                BrowserUtils.isElementDisplayed(blockTxt.get(j));
-                System.out.println(nameAndCity.get(i).getText());
-                System.out.println(blockTxt.get(j).getText());
+        for (int i = 0; i <= nameAndCity.size() - 1; i++) {
+            for (int j = 0; j <= blockTxt.size() - 1; i++) {
+
+                //BrowserUtils.waitUntil(page.activeNameCity);
+//                BrowserUtils.isDisplayed(nameAndCity.get(i));
+//                BrowserUtils.isDisplayed(blockTxt.get(j));
+                if (!(BrowserUtils.isDisplayed(nameAndCity.get(i)))) {
+                    if (!(BrowserUtils.isEnabled(blockTxt.get(j))))
+                        System.out.println(page.activeNameCity);
+                    System.out.println(page.activeMsg.getText());
+                    map.put(nameAndCity.get(i), blockTxt.get(j));
+//                System.out.println(nameAndCity.get(i).getText());
+//                System.out.println(blockTxt.get(j).getText());
+                }
             }
         }
     }
@@ -112,8 +116,7 @@ public class Home_steps implements CommonPage {
     }
 
     @Then("Verify button {string} is clickable")
-    public void verify_button_is_clickable(String btn)
-    {
+    public void verify_button_is_clickable(String btn) {
         BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT2, btn))));
         BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT2, btn))));
         BrowserUtils.assertTrue(BrowserUtils.getDriver().getTitle().toLowerCase().contains(btn));
@@ -121,13 +124,12 @@ public class Home_steps implements CommonPage {
     }
 
     @Then("Verify main navigation bar")
-    public void verifyMainNavigationBar()
-    {
+    public void verifyMainNavigationBar() {
         BrowserUtils.isDisplayed(page.mainBar);
     }
+
     @Then("Verify each button click after scroll {string}")
-    public void iClickNavigationBar(String navButton)
-    {
+    public void iClickNavigationBar(String navButton) {
         JavascriptExecutor js = (JavascriptExecutor) BrowserUtils.getDriver();
         js.executeScript("window.scrollBy(0, 5000)"); //Scroll vertically down by 1000 pixels
 
@@ -138,8 +140,7 @@ public class Home_steps implements CommonPage {
     }
 
     @Then("Verify page navigation bar has correct title {string}")
-    public void verifyPageNavigationBarHasUrl(String titleText)
-    {
+    public void verifyPageNavigationBarHasUrl(String titleText) {
         BrowserUtils.switchToNewWindow();
         BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), titleText);
     }
@@ -169,13 +170,13 @@ public class Home_steps implements CommonPage {
 
     @And("Verify links {string} are displayed")
     public void verifyLinksAreDisplayed(String footerLink) {
-        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_FOOTER_LINKS,footerLink))));
+        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_FOOTER_LINKS, footerLink))));
 
-        }
+    }
 
     @And("Verify links {string} are clickable")
     public void verifyLinksAreClickable(String footerLink) {
-        BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_FOOTER_LINKS,footerLink))));
+        BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_FOOTER_LINKS, footerLink))));
     }
 
     @And("Verify links {string} are opening corresponding page")
@@ -186,7 +187,7 @@ public class Home_steps implements CommonPage {
     @Then("Verify {string} selection")
     public void verifySelection(String language) {
         BrowserUtils.click(page.languageSelection);
-        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS,language))));
+        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, language))));
     }
 
     @Then("Verify items are displayed as a header and description under it")
