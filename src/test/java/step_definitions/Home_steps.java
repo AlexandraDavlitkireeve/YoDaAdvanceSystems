@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import pages.CommonPage;
 import pages.HomePage;
 import utils.BrowserUtils;
+
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -62,10 +63,10 @@ public class Home_steps implements CommonPage {
         BrowserUtils.isDisplayed(page.readMoreBtn);
     }
 
-//    @And("verify header of the page {string}")
-//    public void verifyHeaderOfThePage(String title) {
-//        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
-//    }
+    @And("verify header of the page {string}")
+    public void verifyHeaderOfThePage(String title) {
+        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
+    }
 
     @Then("Verify header {string} is Displayed")
     public void verifyHeaderIsDisplayed(String headerTxt) {
@@ -75,28 +76,27 @@ public class Home_steps implements CommonPage {
     @Then("Verify testimonials, person's name and city are displayed")
     public void verifyTestimonialsPersonSNameAndCityAreDisplayed() throws InterruptedException {
 
+
         Map<String, String> map = new LinkedHashMap<>();
         List<String> testimonialNames = new ArrayList<>();
-        for (int i = 0; i <=page.nameAndCity.size() ; i++) {
+        for (int i = 0; i <= page.nameAndCity.size(); i++) {
 
 
             if (!(testimonialNames.contains(page.activeNameCity.getText()))) {
                 testimonialNames.add(page.activeNameCity.getText());
                 BrowserUtils.isDisplayed(page.activeNameCity);
                 //        map.put(page.activeNameCity.getText(), page.activeMsg.getText());
-            }
-            else if (testimonialNames.contains(page.activeNameCity.getText())) {
-               Thread.sleep(5000);
-               BrowserUtils.isDisplayed(page.activeNameCity);
+            } else if (testimonialNames.contains(page.activeNameCity.getText())) {
+                Thread.sleep(5000);
+                BrowserUtils.isDisplayed(page.activeNameCity);
                 testimonialNames.add(page.activeNameCity.getText());
 
-            }
-            else {
+            } else {
                 BrowserUtils.waitFor(5);
             }
         }
         System.out.println(testimonialNames.size());
-        for (int i = 0; i <testimonialNames.size() ; i++) {
+        for (int i = 0; i < testimonialNames.size(); i++) {
             System.out.println(testimonialNames.get(i));
         }
 //        //    List<WebElement> nameAndCity = page.nameAndCity;
@@ -125,6 +125,30 @@ public class Home_steps implements CommonPage {
 //        }
 
 
+        List<WebElement> nameAndCity = page.nameAndCity;
+        List<WebElement> blockTxt = page.blockTxt;
+        Map<WebElement, WebElement> map = new LinkedHashMap<>();
+//        for (WebElement each : nameAndCity) {
+//            for (WebElement eachTxt : blockTxt) {
+//                BrowserUtils.waitUntil(page.activeNameCity);
+//                BrowserUtils.waitUntil(page.activeMsg);
+        //map.put(nameAndCity.get(each), map.get(eachTxt));
+//                BrowserUtils.isDisplayed(each);
+//                BrowserUtils.isDisplayed(eachTxt);
+//                System.out.println(each.getText());
+//                System.out.println(eachTxt.getText());
+//            }
+//        }
+//        for (int i = 0; i < nameAndCity.size(); i++) {
+//            for (int j = 0; j < blockTxt.size(); i++) {
+//                map.put(nameAndCity.get(i), blockTxt.get(j));
+//                BrowserUtils.isElementDisplayed(nameAndCity.get(i));
+//                BrowserUtils.isElementDisplayed(blockTxt.get(j));
+//                System.out.println(nameAndCity.get(i).getText());
+//                System.out.println(blockTxt.get(j).getText());
+//            }
+//        }
+
     }
 
 
@@ -138,7 +162,11 @@ public class Home_steps implements CommonPage {
         BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT2, btn))));
         BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT2, btn))));
         BrowserUtils.assertTrue(BrowserUtils.getDriver().getTitle().toLowerCase().contains(btn));
+    }
 
+    @And("Verify page {string} navigate to website")
+    public void verifyPageNavigateToWebsite(String btn) {
+        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_BUTTON, btn).toLowerCase())));
     }
 
     @Then("Verify main navigation bar")
@@ -181,9 +209,8 @@ public class Home_steps implements CommonPage {
 
     @Then("Verify {string} is displayed")
     public void verifyIsDisplayed(String info) {
-
-        BrowserUtils.assertTrue(page.footerInfo1.getText().contains(info));
-
+        BrowserUtils.isDisplayed(BrowserUtils.getDriver()
+                .findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, info))));
     }
 
     @And("Verify links {string} are displayed")

@@ -24,7 +24,7 @@ Feature: Home Page Test
     And verify second header is displayed
     And verify second description is displayed
     And verify second read more button is displayed
-#    And verify header of the page "Advance Systems - Services"
+    And verify header of the page "Advance Systems - Services"
 
   @ASY-06 @smoke @regression
   Scenario: Title of the home page

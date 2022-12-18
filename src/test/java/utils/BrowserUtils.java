@@ -100,7 +100,18 @@ public class BrowserUtils {
         JavascriptExecutor js = (JavascriptExecutor) BrowserUtils.getDriver();
         js.executeScript("window.scrollBy(0, -300)");
 //        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, "+y+")");
+
+        //((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center', inline: 'nearest'});", element);
+
     }
+//    public static void moveIntoView2(WebElement element) {
+////        int y = element.getLocation().getY()-200;
+//        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+//        JavascriptExecutor js = (JavascriptExecutor) BrowserUtils.getDriver();
+//        js.executeScript("window.scrollBy(0, -300)");
+////        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, "+y+")");
+//    }
 
     public static void highlightElement(WebElement element) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -194,6 +205,7 @@ public class BrowserUtils {
         return element.isDisplayed();
     }
 
+
     public static boolean isElementDisplayed(WebElement element) {
         waitForElementVisibility(element);
         moveIntoView2(element);
@@ -202,6 +214,16 @@ public class BrowserUtils {
 
         return element.isDisplayed();
     }
+
+//   public static boolean isElementDisplayed(WebElement element) {
+//       waitForElementVisibility(element);
+//       moveIntoView2(element);
+//       moveIntoView(element);
+//       highlightElement(element);
+//       Assert.assertTrue(element.isDisplayed());
+//       return element.isDisplayed();
+//   }
+
 
     public static boolean isEnabled(WebElement element) {
         waitForElementClickability(element);
