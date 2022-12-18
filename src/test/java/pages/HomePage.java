@@ -64,9 +64,6 @@ public class HomePage {
     @FindBy(xpath = "//div[contains(@class, 'six-item-carousel')]")
     public WebElement listOfCompany;
 
-    @FindBy(xpath = "//ul[@class='list-info']")
-    public WebElement footerInfo1;
-
     @FindBy(xpath = "//span[@class='icon']")
     public WebElement languageSelection;
 
@@ -76,7 +73,7 @@ public class HomePage {
     @FindBy(xpath = "//div[@class='flex-box']//div[@class='inner-box']")
     public List<WebElement> item;
 
-    //@FindBy(xpath = "")
+    //@FindBy(xpath = "//")
 
 
 
