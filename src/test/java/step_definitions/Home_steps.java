@@ -9,9 +9,12 @@ import org.openqa.selenium.WebElement;
 import pages.CommonPage;
 import pages.HomePage;
 import utils.BrowserUtils;
-import utils.Screenshot;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
 
 public class Home_steps implements CommonPage {
 
@@ -72,56 +75,39 @@ public class Home_steps implements CommonPage {
     }
 
     @Then("Verify testimonials, person's name and city are displayed")
-    public void verifyTestimonialsPersonSNameAndCityAreDisplayed() {
-//        List<WebElement> testimonials = page.testMsg;
-//        for (WebElement each : testimonials) {
-//            BrowserUtils.isDisplayed(each);
-//            System.out.println(page.activeMsg.getText());
-//        }
+    public void verifyTestimonialsPersonSNameAndCityAreDisplayed() throws InterruptedException {
+
+
+        Map<String, String> map = new LinkedHashMap<>();
+        List<String> testimonialNames = new ArrayList<>();
+        for (int i = 0; i <= page.nameAndCity.size(); i++) {
+
+
+            if (!(testimonialNames.contains(page.activeNameCity.getText()))) {
+                testimonialNames.add(page.activeNameCity.getText());
+                BrowserUtils.isDisplayed(page.activeNameCity);
+                //        map.put(page.activeNameCity.getText(), page.activeMsg.getText());
+            } else if (testimonialNames.contains(page.activeNameCity.getText())) {
+                Thread.sleep(5000);
+                BrowserUtils.isDisplayed(page.activeNameCity);
+                testimonialNames.add(page.activeNameCity.getText());
+
+            } else {
+                BrowserUtils.waitFor(5);
+            }
+        }
+        System.out.println(testimonialNames.size());
+        for (int i = 0; i < testimonialNames.size(); i++) {
+            System.out.println(testimonialNames.get(i));
+        }
 
         List<WebElement> nameAndCity = page.nameAndCity;
         List<WebElement> blockTxt = page.blockTxt;
-        Map<WebElement, WebElement> map = new HashMap<>();
-//        for (WebElement each : nameAndCity) {
-//            for (WebElement eachTxt : blockTxt) {
-//                BrowserUtils.waitUntil(page.activeNameCity);
-//                BrowserUtils.waitUntil(page.activeMsg);
-        //map.put(nameAndCity.get(each), map.get(eachTxt));
-//                BrowserUtils.isDisplayed(each);
-//                BrowserUtils.isDisplayed(eachTxt);
-//                System.out.println(each.getText());
-//                System.out.println(eachTxt.getText());
-//            }
-//        }
 
-        for (int i = 0; i <= nameAndCity.size() - 1; i++) {
-            for (int j = 0; j <= blockTxt.size() - 1; i++) {
 
-                //BrowserUtils.waitUntil(page.activeNameCity);
-//                BrowserUtils.isDisplayed(nameAndCity.get(i));
-//                BrowserUtils.isDisplayed(blockTxt.get(j));
-                if (!(BrowserUtils.isDisplayed(nameAndCity.get(i)))) {
-                    if (!(BrowserUtils.isEnabled(blockTxt.get(j))))
-                        System.out.println(page.activeNameCity);
-                    System.out.println(page.activeMsg.getText());
-                    map.put(nameAndCity.get(i), blockTxt.get(j));
-//                System.out.println(nameAndCity.get(i).getText());
-//                System.out.println(blockTxt.get(j).getText());
-                }
-            }
-        }
-
-//        for (int i = 0; i < nameAndCity.size(); i++) {
-//            for (int j = 0; j < blockTxt.size(); i++) {
-//                map.put(nameAndCity.get(i), blockTxt.get(j));
-//                BrowserUtils.isElementDisplayed(nameAndCity.get(i));
-//                BrowserUtils.isElementDisplayed(blockTxt.get(j));
-//                System.out.println(nameAndCity.get(i).getText());
-//                System.out.println(blockTxt.get(j).getText());
-//            }
-//        }
 
     }
+
 
     @Then("Verify  {string} buttons are displayed")
     public void verifyButtonsAreDisplayed(String mediaBtn) {
@@ -136,8 +122,7 @@ public class Home_steps implements CommonPage {
     }
 
     @And("Verify page {string} navigate to website")
-    public void verifyPageNavigateToWebsite(String btn)
-    {
+    public void verifyPageNavigateToWebsite(String btn) {
         BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_BUTTON, btn).toLowerCase())));
     }
 
