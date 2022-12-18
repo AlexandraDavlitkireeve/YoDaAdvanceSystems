@@ -127,7 +127,7 @@ public class Home_steps implements CommonPage {
 
         List<WebElement> nameAndCity = page.nameAndCity;
         List<WebElement> blockTxt = page.blockTxt;
-        Map<WebElement, WebElement> map = new LinkedHashMap<>();
+//        Map<WebElement, WebElement> map = new LinkedHashMap<>();
 //        for (WebElement each : nameAndCity) {
 //            for (WebElement eachTxt : blockTxt) {
 //                BrowserUtils.waitUntil(page.activeNameCity);
