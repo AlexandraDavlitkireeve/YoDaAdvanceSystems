@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import pages.CommonPage;
 import pages.HomePage;
 import utils.BrowserUtils;
+import utils.Screenshot;
 
 import java.util.*;
 
@@ -60,10 +61,10 @@ public class Home_steps implements CommonPage {
         BrowserUtils.isDisplayed(page.readMoreBtn);
     }
 
-//    @And("verify header of the page {string}")
-//    public void verifyHeaderOfThePage(String title) {
-//        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
-//    }
+    @And("verify header of the page {string}")
+    public void verifyHeaderOfThePage(String title) {
+        BrowserUtils.assertEquals(BrowserUtils.getDriver().getTitle(), title);
+    }
 
     @Then("Verify header {string} is Displayed")
     public void verifyHeaderIsDisplayed(String headerTxt) {
@@ -92,6 +93,7 @@ public class Home_steps implements CommonPage {
 //                System.out.println(eachTxt.getText());
 //            }
 //        }
+
         for (int i = 0; i <= nameAndCity.size() - 1; i++) {
             for (int j = 0; j <= blockTxt.size() - 1; i++) {
 
@@ -108,6 +110,17 @@ public class Home_steps implements CommonPage {
                 }
             }
         }
+
+//        for (int i = 0; i < nameAndCity.size(); i++) {
+//            for (int j = 0; j < blockTxt.size(); i++) {
+//                map.put(nameAndCity.get(i), blockTxt.get(j));
+//                BrowserUtils.isElementDisplayed(nameAndCity.get(i));
+//                BrowserUtils.isElementDisplayed(blockTxt.get(j));
+//                System.out.println(nameAndCity.get(i).getText());
+//                System.out.println(blockTxt.get(j).getText());
+//            }
+//        }
+
     }
 
     @Then("Verify  {string} buttons are displayed")
@@ -120,7 +133,12 @@ public class Home_steps implements CommonPage {
         BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT2, btn))));
         BrowserUtils.click(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT2, btn))));
         BrowserUtils.assertTrue(BrowserUtils.getDriver().getTitle().toLowerCase().contains(btn));
+    }
 
+    @And("Verify page {string} navigate to website")
+    public void verifyPageNavigateToWebsite(String btn)
+    {
+        BrowserUtils.isDisplayed(BrowserUtils.getDriver().findElement(By.xpath(String.format(XPATH_TEMPLATE_BUTTON, btn).toLowerCase())));
     }
 
     @Then("Verify main navigation bar")
@@ -163,9 +181,8 @@ public class Home_steps implements CommonPage {
 
     @Then("Verify {string} is displayed")
     public void verifyIsDisplayed(String info) {
-
-        BrowserUtils.assertTrue(page.footerInfo1.getText().contains(info));
-
+        BrowserUtils.isDisplayed(BrowserUtils.getDriver()
+                .findElement(By.xpath(String.format(XPATH_TEMPLATE_TEXT_CONTAINS, info))));
     }
 
     @And("Verify links {string} are displayed")
