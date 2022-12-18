@@ -7,7 +7,7 @@ Feature: Home Page Test
   Scenario: HomePage
 
 
-  @ASY-3 @smoke @regression
+  @ASY-3  @regression
   Scenario Outline: Contact info on main page
     Then Verify "<contact info>" on main page
     Examples:
@@ -16,7 +16,7 @@ Feature: Home Page Test
       | Fairfax, VA, USA  |
       | +1 703-831-3217   |
 
-  @ASY-04 @smoke @regression
+  @ASY-04  @regression
   Scenario: Parallax section
     Then header is displayed
     And verify description is displayed
@@ -26,7 +26,7 @@ Feature: Home Page Test
     And verify second read more button is displayed
     And verify header of the page "Advance Systems - Services"
 
-  @ASY-06 @smoke @regression
+  @ASY-06  @regression
   Scenario: Title of the home page
     Then Verify Title of the homepage should be "Advance Systems - Home"
 
@@ -66,28 +66,28 @@ Feature: Home Page Test
       | Join Us    | Advance Systems - Join Us    |
       | Contact Us | Advance Systems - Contact Us |
 
-  @ASY-10 @smoke @regression
+  @ASY-10  @regression
   Scenario: Main call to cation button
     Then Verify "Join Now" button above the main content of the home page
     And Verify button should take the user to "Join Us" page
 
-  @ASY-11 @smoke @regression
+  @ASY-11  @regression
   Scenario: What to expect section
     Then Verify items are displayed as a header and description under it
 
 
-  @ASY-12 @smoke @regression
+  @ASY-12  @regression
   Scenario: Testimonials
     Then Verify header "Words from our Clients" is Displayed
     Then Verify testimonials, person's name and city are displayed
 
 
-  @ASY-13 @smoke @regression
+  @ASY-13  @regression
   Scenario: List of companies
     Then Verify Company  names are  display in one row
 
 
-  @ASY-14 @smoke
+  @ASY-14 @regression
   Scenario Outline: Footer contact info
 
     Then Verify "<contact info>" is displayed
@@ -98,7 +98,7 @@ Feature: Home Page Test
       | Email: info@advancesystems.us       |
       | Mon to Sat: 9.00 am to 5:00 pm      |
 
-  @ASY-15 @smoke @regression
+  @ASY-15  @regression
   Scenario Outline: Footer quick links
     And Verify links "<footer links>" are displayed
     And Verify links "<footer links>" are clickable
@@ -113,7 +113,7 @@ Feature: Home Page Test
       | Contact Us   |
 
 
-  @ASY-16 @smoke @regression
+  @ASY-16 @regression
   Scenario Outline: Test footer social media links are displayed
     Then Verify  "<social media>" buttons are displayed
     Examples:
