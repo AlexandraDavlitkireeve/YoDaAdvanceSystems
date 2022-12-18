@@ -100,77 +100,11 @@ public class Home_steps implements CommonPage {
         for (int i = 0; i < testimonialNames.size(); i++) {
             System.out.println(testimonialNames.get(i));
         }
-//        //    List<WebElement> nameAndCity = page.nameAndCity;
-//        List<WebElement> blockTxt = page.blockTxt;
-//        Map<String, String> map = new LinkedHashMap<>();
-//
-//        // Iterator<WebElement> itr = map.keySet().iterator();
-//        //   if(!(itr.toString().contains(page.activeNameCity.getText()))){
-//        for (int i = 0; i <= page.clonedTestimonials.size(); i++) {
-////           if(map.keySet().contains(page.activeNameCity)) {
-//
-////          for (String key : map.keySet()) {
-//            //               if(!(key.contains(page.activeNameCity.getText()))){
-//            if ((BrowserUtils.isDisplayed(page.clonedTestimonials.get(i)))) {
-//
-//                //rowserUtils.isElementDisplayed(page.activeNameCity);
-//                System.out.println("========================");
-//                System.out.println(page.activeMsg.getText());
-//                System.out.println(page.activeNameCity.getText());
-//                System.out.println(i);
-//                System.out.println("________________");
-//                ;
-//                //System.out.println(blockTxt.get(i).getText());
-//                map.put(page.activeNameCity.getText(), page.activeMsg.getText());
-//            }
-//        }
-
 
         List<WebElement> nameAndCity = page.nameAndCity;
         List<WebElement> blockTxt = page.blockTxt;
 
-//        Map<WebElement, WebElement> map = new LinkedHashMap<>();
 
-        //       Map<WebElement, WebElement> map = new HashMap<>();
-
-//        for (WebElement each : nameAndCity) {
-//            for (WebElement eachTxt : blockTxt) {
-//                BrowserUtils.waitUntil(page.activeNameCity);
-//                BrowserUtils.waitUntil(page.activeMsg);
-        //map.put(nameAndCity.get(each), map.get(eachTxt));
-//                BrowserUtils.isDisplayed(each);
-//                BrowserUtils.isDisplayed(eachTxt);
-//                System.out.println(each.getText());
-//                System.out.println(eachTxt.getText());
-//            }
-//        }
-//
-//        for (int i = 0; i <= nameAndCity.size() - 1; i++) {
-//            for (int j = 0; j <= blockTxt.size() - 1; i++) {
-
-        //BrowserUtils.waitUntil(page.activeNameCity);
-//                BrowserUtils.isDisplayed(nameAndCity.get(i));
-//                BrowserUtils.isDisplayed(blockTxt.get(j));
-//                if (!(BrowserUtils.isDisplayed(nameAndCity.get(i)))) {
-//                    if (!(BrowserUtils.isEnabled(blockTxt.get(j))))
-//                        System.out.println(page.activeNameCity);
-//                    System.out.println(page.activeMsg.getText());
-//                    map.put(nameAndCity.get(i), blockTxt.get(j));
-//                System.out.println(nameAndCity.get(i).getText());
-//                System.out.println(blockTxt.get(j).getText());
-        //               }
-//            }
-//        }
-
-//        for (int i = 0; i < nameAndCity.size(); i++) {
-//            for (int j = 0; j < blockTxt.size(); i++) {
-//                map.put(nameAndCity.get(i), blockTxt.get(j));
-//                BrowserUtils.isElementDisplayed(nameAndCity.get(i));
-//                BrowserUtils.isElementDisplayed(blockTxt.get(j));
-//                System.out.println(nameAndCity.get(i).getText());
-//                System.out.println(blockTxt.get(j).getText());
-//            }
-//        }
 
     }
 
