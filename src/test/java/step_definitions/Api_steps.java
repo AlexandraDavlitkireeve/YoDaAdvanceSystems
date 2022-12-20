@@ -12,10 +12,6 @@ import static org.apache.http.HttpStatus.SC_OK;
 
 public class Api_steps {
 
-    private static final String path = "/api/school/programs/devcourse";
-    private static final String path2 = "/api/school/programs/sdetcourse";
-    private static final String path3 = "/api/school/resources/students";
-
     Response response;
 
     @Given("User gets Base URL")
@@ -27,12 +23,13 @@ public class Api_steps {
     public void userSendGETRequestToTheEndpoint(String endpoint) {
         response = RestAssured.given()
                 .when()
-                .get(path)
+                .get(endpoint)
                 .then()
                 .log().all()
                 .extract()
                 .response();
     }
+
     @Then("User should get status code {int}")
     public void userShouldGetStatusCode(int statusCode) {
         Assert.assertEquals(statusCode, response.statusCode());
@@ -51,14 +48,29 @@ public class Api_steps {
         }
     }
 
-    @Then("User sends request with username and password")
-    public void userSendsRequestWithUsernameAndPassword() {
-        String path = "/api/school/departments/gettoken";
+//    @Then("User sends request with username and password")
+//    public void userSendsRequestWithUsernameAndPassword() {
+//        String path = "/api/school/departments/gettoken";
+//
+//        response = RestAssured.given()
+//                .auth().preemptive().basic("user", "user123")
+//                .when()
+//                .get(path)
+//                .prettyPeek()
+//                .then()
+//                .statusCode(SC_OK)
+//                .extract()// Method that extracts the response JSON DATA
+//                .response();
+//
+//        Assert.assertEquals(SC_OK, response.statusCode());
+//    }
 
+    @When("User adds basic auth with username {string} and password {string}")
+    public void userAddsBasicAuthWithUsernameAndPassword(String username, String password) {
         response = RestAssured.given()
-                .auth().preemptive().basic("user", "user123")
+                .auth().preemptive().basic(username, password)
                 .when()
-                .get(path)
+                .get(ConfigReader.readProperty("token"))
                 .prettyPeek()
                 .then()
                 .statusCode(SC_OK)
@@ -68,22 +80,5 @@ public class Api_steps {
         Assert.assertEquals(SC_OK, response.statusCode());
     }
 
-    @When("User send POST request to endpoint {string}")
-    public void userSendPOSTRequestToEndpoint(String str)
-    {
-        response = RestAssured.given()
-                .when()
-                .post(str)
-                .then()
-                .extract().response();
-     }
 
-    @Then("There should be an option to add new student to db in the following fields")
-    public void thereShouldBeAnOptionToAddNewStudentToDbInTheFollowingFields(List<String> list)
-    {
-        for(int i = 0; i < list.size(); i ++)
-        {
-            Assert.assertNotNull(response.jsonPath().getString("data." + list.get(i) + "[0]"));
-        }
-    }
 }
