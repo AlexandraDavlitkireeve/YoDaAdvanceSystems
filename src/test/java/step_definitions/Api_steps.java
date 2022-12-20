@@ -7,8 +7,9 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.Assert;
 import utils.ConfigReader;
+import java.util.HashMap;
 import java.util.List;
-import static org.apache.http.HttpStatus.SC_OK;
+import java.util.Map;
 
 public class Api_steps {
 
@@ -71,14 +72,41 @@ public class Api_steps {
                 .auth().preemptive().basic(username, password)
                 .when()
                 .get(ConfigReader.readProperty("token"))
-                .prettyPeek()
+//                .prettyPeek()
                 .then()
-                .statusCode(SC_OK)
                 .extract()// Method that extracts the response JSON DATA
                 .response();
-
-        Assert.assertEquals(SC_OK, response.statusCode());
     }
 
 
+    @Then("response should contain a {string}")
+    public void responseShouldContainAToken(String token) {
+        Assert.assertNotNull(response.jsonPath().getString(token));
+    }
+
+    @Then("response should contain a message {string}")
+    public void responseShouldContainAMessage(String message) {
+        System.out.println(message);
+        Assert.assertTrue(message, true);
+    }
+
+
+    @Then("User adds new {string} and {string} to the endpoint {string}")
+    public void userAddsNewAndToTheEndpoint(String name, String duration, String endpoint) {
+        Map<String, String> requestBody = new HashMap<>();
+        requestBody.put("name", name);
+        requestBody.put("duration", duration);
+
+        response = RestAssured.given()
+                .headers("Content-type", "application/json")
+                .and()
+                .body(requestBody)
+                .when()
+                .post(endpoint)
+                .then()
+                .log().all()
+                .extract()
+                .response();
+
+    }
 }
