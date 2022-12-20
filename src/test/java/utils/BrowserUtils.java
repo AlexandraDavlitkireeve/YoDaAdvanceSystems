@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.sql.Driver;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 
@@ -21,7 +22,7 @@ public class BrowserUtils {
 
     }
 
-    private static WebDriver driver;
+    private static WebDriver driver =null;
 
     public static WebDriver getDriver() {
         if (driver == null) {
@@ -44,6 +45,9 @@ public class BrowserUtils {
         }
     }
 
+    public static WebDriver checkDriverStatus() {
+        return driver;
+    }
     private static void initializeDriver(String browser) {
 
         switch (browser) {

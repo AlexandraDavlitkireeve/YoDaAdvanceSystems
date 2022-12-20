@@ -13,19 +13,24 @@ public class Hooks {
 
     @Before
     public void setUp(Scenario scenario) {
-        BrowserUtils.getDriver();
+        //BrowserUtils.getDriver();
         CucumberLogUtils.initScenario(scenario);
 
     }
 
     @After
     public void tearDown(Scenario scenario) {
+        if (BrowserUtils.checkDriverStatus() != null) {
 
-    if(scenario.isFailed()) {
-        CucumberLogUtils.logFail("Scenario failed", true);
-    } else {
-        CucumberLogUtils.logPass("Scenario passed", true);
-    }
+            if (scenario.isFailed()) {
+
+                CucumberLogUtils.logFail("Scenario failed", true);
+            } else {
+                CucumberLogUtils.logPass("Scenario passed", true);
+
+            }
+        }
         BrowserUtils.quitDriver();
     }
+
 }
