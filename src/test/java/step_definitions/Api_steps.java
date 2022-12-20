@@ -8,8 +8,6 @@ import io.restassured.response.Response;
 import org.junit.Assert;
 import utils.ConfigReader;
 import java.util.List;
-
-import static io.restassured.RestAssured.given;
 import static org.apache.http.HttpStatus.SC_OK;
 
 public class Api_steps {
@@ -27,7 +25,7 @@ public class Api_steps {
 
     @When("User send GET request to the endpoint {string}")
     public void userSendGETRequestToTheEndpoint(String endpoint) {
-        response = given()
+        response = RestAssured.given()
                 .when()
                 .get(path)
                 .then()
@@ -57,7 +55,7 @@ public class Api_steps {
     public void userSendsRequestWithUsernameAndPassword() {
         String path = "/api/school/departments/gettoken";
 
-        response = given()
+        response = RestAssured.given()
                 .auth().preemptive().basic("user", "user123")
                 .when()
                 .get(path)
@@ -69,19 +67,23 @@ public class Api_steps {
 
         Assert.assertEquals(SC_OK, response.statusCode());
     }
-    @Then("Create option to add new student to db using the following id parameter")
-    public void createOptionToAddNewStudentToDbUsingTheFollowingIdParameter(List list)
+
+    @When("User send POST request to endpoint {string}")
+    public void userSendPOSTRequestToEndpoint(String str)
     {
-
-        response = given()
+        response = RestAssured.given()
                 .when()
-                .post(path)
-                .then().log().all()
-                .extract()
-                .response();
+                .post(str)
+                .then()
+                .extract().response();
+     }
 
+    @Then("There should be an option to add new student to db in the following fields")
+    public void thereShouldBeAnOptionToAddNewStudentToDbInTheFollowingFields(List<String> list)
+    {
+        for(int i = 0; i < list.size(); i ++)
+        {
+            Assert.assertNotNull(response.jsonPath().getString("data." + list.get(i) + "[0]"));
+        }
     }
 }
-
-
-
