@@ -1,5 +1,6 @@
 package step_definitions;
 
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -13,6 +14,12 @@ import static org.apache.http.HttpStatus.SC_OK;
 public class Api_steps {
 
     Response response;
+
+    final String BASEURI = ConfigReader.readProperty("BASE_URL");
+    final String DEVCOURSE = ConfigReader.readProperty("dev");
+    final String SDET = ConfigReader.readProperty("sdet");
+    final String STUDENTDB = ConfigReader.readProperty("studentDb");
+    String studentData;
 
     @Given("User gets Base URL")
     public void userGetsBaseURL() {
@@ -80,5 +87,49 @@ public class Api_steps {
         Assert.assertEquals(SC_OK, response.statusCode());
     }
 
+
+//    @Then("User send a POST request to the endpoint{string}")
+//    public void userSendAPOSTRequestTheEndpoint(String strEndpoint, List<String> list)
+//    {
+//        response = RestAssured.given()
+//                .header ("Content-Type" , "application/json")
+//                .when()
+//                .post(strEndpoint)
+//                .then().log().all()
+//                .extract()
+//                .response();
+//
+//        System.out.println(response.jsonPath().getString("_id"));
+
+//        for(int i =0; i < list.size(); i++)
+//        {
+//            Assert.assertNotNull(response.jsonPath().getString("data._id" + list.get(i) + "[0]"));
+//
+//        }
+//    }
+
+    @Then("User need an option to add new student to db. Following fields should be required to perform POST request")
+    public void userNeedAnOptionToAddNewStudentToDbFollowingFieldsShouldBeRequiredToPerformPOSTRequest(List<String> list)
+    {
+        response = RestAssured.given()
+                .header("Content-Type" , "application/json")
+                .and()
+                .post(STUDENTDB)
+                .then()
+                .log().all()
+                .extract()
+                .response();
+        System.out.println("StudentDB" + list + response);
+    }
+
+//    @And("User should have option to add new student to db using following field")
+//    public void userShouldHaveOptionToAddNewStudentToDbUsingFollowingField(List<String> list)
+//    {
+//        for(int i =0; i < list.size(); i++)
+//        {
+//            Assert.assertNotNull(response.jsonPath().getString("data." + list.get(i) + "[0]"));
+//
+//        }
+//    }
 
 }

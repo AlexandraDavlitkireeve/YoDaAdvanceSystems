@@ -15,6 +15,23 @@ Feature: End to end test
       | "name"     |
       | "duration" |
 
+  @ASY-24
+  Scenario: Add new student
+    Then User need an option to add new student to db. Following fields should be required to perform POST request
+      | "batch name" |
+      | "firstname"  |
+      | "lastname"   |
+      | "email"      |
+
+
+#    Scenario: Add new student
+#    Then User send a POST request to the endpoint"/api/school/resources/students"
+#   And User should have option to add new student to db using following field
+#      | "batch name" |
+#      | "firstname"  |
+#      | "lastname"   |
+#      | "email"      |
+
   @ASY-27
   Scenario: Bearer token retrieval
     When User adds basic auth with username "user" and password "user123"
