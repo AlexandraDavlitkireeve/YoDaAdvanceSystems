@@ -26,6 +26,13 @@ Feature: End to end test
       | name       | duration |
       | API Expert | 2 months |
 
+  @ASY-24
+    Scenario Outline: Add new student performing POST request
+    When Option to add new student to db "<batch name>" and "<firstname>" and "<lastname>" and "<email>" endpoint "/api/school/resources/students"
+    Examples:
+      | batch name | firstname | lastname | email                  |
+      | batch 6    | Arlan     | Wilson   | doggieheaven@gmail.com |
+
   @ASY-27
   Scenario: Bearer token retrieval
     When User adds basic auth with username "user" and password "user123"

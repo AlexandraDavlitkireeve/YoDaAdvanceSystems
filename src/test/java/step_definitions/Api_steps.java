@@ -1,5 +1,6 @@
 package step_definitions;
 
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -14,6 +15,12 @@ import java.util.Map;
 public class Api_steps {
 
     Response response;
+
+    final String BASEURI = ConfigReader.readProperty("BASE_URL");
+    final String DEVCOURSE = ConfigReader.readProperty("dev");
+    final String SDET = ConfigReader.readProperty("sdet");
+    final String STUDENTDB = ConfigReader.readProperty("studentDb");
+    String studentData;
 
     @Given("User gets Base URL")
     public void userGetsBaseURL() {
@@ -78,7 +85,46 @@ public class Api_steps {
                 .response();
     }
 
+//    @Then("User send a POST request to the endpoint{string}")
+//    public void userSendAPOSTRequestTheEndpoint(String strEndpoint, List<String> list)
+//    {
+//        response = RestAssured.given()
+//                .header ("Content-Type" , "application/json")
+//                .when()
+//                .post(strEndpoint)
+//                .then().log().all()
+//                .extract()
+//                .response();
+//
+//        System.out.println(response.jsonPath().getString("_id"));
 
+//        for(int i =0; i < list.size(); i++)
+//        {
+//            Assert.assertNotNull(response.jsonPath().getString("data._id" + list.get(i) + "[0]"));
+//
+//        }
+//    }
+@When("Option to add new student to db {string} and {string} and {string} and {string} endpoint {string}")
+public void optionToAddNewStudentToDbAndAndAndEndpoint(String batch, String firstname, String lastname, String email, String endpoint)
+{
+    Map<String, String> jsonBody = new HashMap<>();
+    jsonBody.put("batch name", batch);
+    jsonBody.put("firstname", firstname);
+    jsonBody.put("lastname", lastname);
+    jsonBody.put("email", email);
+
+    response = RestAssured.given()
+            .headers("Content-type", "application/json")
+            .and()
+            .body(jsonBody)
+            .when()
+            .post(endpoint)
+            .then()
+            .log().all()
+            .extract()
+            .response();
+
+}
     @Then("response should contain a {string}")
     public void responseShouldContainAToken(String token) {
         Assert.assertNotNull(response.jsonPath().getString(token));
