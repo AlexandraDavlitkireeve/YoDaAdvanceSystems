@@ -80,17 +80,20 @@ public class Home_steps implements CommonPage {
 
         Map<String, String> map = new LinkedHashMap<>();
         List<String> testimonialNames = new ArrayList<>();
+        List<String> testimonials = new ArrayList<>();
         for (int i = 0; i <= page.nameAndCity.size(); i++) {
 
 
             if (!(testimonialNames.contains(page.activeNameCity.getText()))) {
                 testimonialNames.add(page.activeNameCity.getText());
+                testimonials.add(page.activeMsg.getText());
                 BrowserUtils.isDisplayed(page.activeNameCity);
                 //        map.put(page.activeNameCity.getText(), page.activeMsg.getText());
             } else if (testimonialNames.contains(page.activeNameCity.getText())) {
                 Thread.sleep(5000);
                 BrowserUtils.isDisplayed(page.activeNameCity);
                 testimonialNames.add(page.activeNameCity.getText());
+                testimonials.add(page.activeMsg.getText());
 
             } else {
                 BrowserUtils.waitFor(5);
@@ -98,13 +101,11 @@ public class Home_steps implements CommonPage {
         }
         System.out.println(testimonialNames.size());
         for (int i = 0; i < testimonialNames.size(); i++) {
+            System.out.println("_________________________");
             System.out.println(testimonialNames.get(i));
+            System.out.println(testimonials.get(i));
+            System.out.println("===========================");
         }
-
-        List<WebElement> nameAndCity = page.nameAndCity;
-        List<WebElement> blockTxt = page.blockTxt;
-
-
 
     }
 
