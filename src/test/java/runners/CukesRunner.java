@@ -17,8 +17,8 @@ import org.junit.runner.RunWith;
         stepNotifications = true,
         dryRun = false
 
+        ,tags = "@ASY-24"
 
-        ,tags = "@ASY-12"
 
 
 
